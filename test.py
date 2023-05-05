@@ -24,7 +24,7 @@ st.text_input('Does what',
               help=None, 
               autocomplete=None, 
               on_change=None, 
-              placeholder='Zeus', disabled=False, 
+              placeholder='sees', disabled=False, 
               label_visibility="visible")
 
 
@@ -36,6 +36,6 @@ st.text_input('To whom',
               help=None, 
               autocomplete=None, 
               on_change=None, 
-              placeholder='Zeus', disabled=False, 
+              placeholder='Leda', disabled=False, 
               label_visibility="visible")
 
