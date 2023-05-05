@@ -5,7 +5,7 @@ import json
 import os
 import streamlit as st
 
-st.write('Enter hylemes below')
+st.title('Enter hylemes below')
 
 st.text_input('Who', 
               value="", 
