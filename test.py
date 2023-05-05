@@ -13,7 +13,7 @@ st.text_input(label,
               help=None, 
               autocomplete=None, 
               on_change=None, 
-              args=None, kwargs=None, *, placeholder='Zeus', disabled=False, 
+              placeholder='Zeus', disabled=False, 
               label_visibility="visible")
 
 st.text_input(label, 
@@ -24,7 +24,7 @@ st.text_input(label,
               help=None, 
               autocomplete=None, 
               on_change=None, 
-              args=None, kwargs=None, *, placeholder='Zeus', disabled=False, 
+              placeholder='Zeus', disabled=False, 
               label_visibility="visible")
 
 
@@ -36,6 +36,6 @@ st.text_input(label,
               help=None, 
               autocomplete=None, 
               on_change=None, 
-              args=None, kwargs=None, *, placeholder='Zeus', disabled=False, 
+              placeholder='Zeus', disabled=False, 
               label_visibility="visible")
 
