@@ -41,3 +41,12 @@ st.text_input('To whom',
               placeholder='Leda', disabled=False, 
               label_visibility="visible")
 
+if st.button('Next hyleme'):
+    st.write('Ok!')
+else:
+    pass
+  
+if st.button('End of sequence'):
+    st.write('Sequence entered.')
+else:
+    pass
