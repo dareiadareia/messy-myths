@@ -44,13 +44,3 @@ with st.form(key='columns_in_form'):
                 label_visibility="visible")
 
 submit = form.form_submit_button("Save sequence")
-
-if st.button('Next hyleme'):
-    st.write('Ok!')
-else:
-    pass
-  
-if st.button('End of sequence'):
-    st.write('Sequence entered.')
-else:
-    pass
