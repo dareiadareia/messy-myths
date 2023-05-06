@@ -24,6 +24,7 @@ def save_data(num_rows):
         st.write(row)
         st.session_state.data = pd.concat([st.session_state.data, row])
         print(st.session_state.data)
+        st.dataframe(st.session_state.data) 
 
 form = st.form(
     clear_on_submit=True, 
@@ -66,4 +67,3 @@ with form:
                       label_visibility="visible")
     submit = st.form_submit_button("Save sequence", on_click=save_data(num_rows))
 
-st.dataframe(st.session_state.data) 
