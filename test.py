@@ -24,7 +24,7 @@ def save_data(num_rows):
                 'object':[st.session_state.object+str(i)]})
     st.session_state.data = pd.concat([st.session_state.data, row])
 
-form = st.form(clear_on_submit=True, key='input_form'+str(st.session_state.n_rows))
+form = st.form(clear_on_submit=True, key='input_form')
 with form:
     c1, c2, c3 = st.columns(3)
     for i in range(1, num_rows+1):
