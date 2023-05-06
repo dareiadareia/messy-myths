@@ -16,6 +16,8 @@ if 'data' not in st.session_state:
 
 #source: https://discuss.streamlit.io/t/button-to-add-new-row-of-inputs/33245/2
 def save_data(num_rows):
+    data = pd.DataFrame({'subject':[],'predicate':[],'object':[]})
+    st.session_state.data = data
     for i in range(num_rows):
         st.write(i)
         row = pd.DataFrame({'subject':[st.session_state['subject'+str(i)]],
@@ -23,7 +25,7 @@ def save_data(num_rows):
                 'object':[st.session_state['object'+str(i)]]
                 })
         st.write(row)
-        st.session_state.data = st.session_state.data.append(row)
+        st.session_state.data.loc[len(t.session_state.data)] = row
     st.dataframe(st.session_state.data) 
 
 form = st.form(
