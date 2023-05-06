@@ -61,6 +61,6 @@ with form:
                       on_change=None, 
                       placeholder='Leda', disabled=False, 
                       label_visibility="visible")
-    submit = st.form_submit_button("Save sequence", on_click=save_data)
+    submit = st.form_submit_button("Save sequence", on_click=save_data(num_rows))
 
 st.dataframe(data) 
