@@ -23,6 +23,7 @@ def save_data(num_rows):
                 'predicate':[st.session_state['predicate'+str(i)]],
                 'object':[st.session_state['object'+str(i)]]
                 })
+        st.write(row)
     st.session_state.data = pd.concat([st.session_state.data, row])
 
 form = st.form(
