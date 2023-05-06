@@ -24,7 +24,7 @@ def save_data(num_rows):
                 'predicate':[st.session_state['predicate'+str(i)]],
                 'object':[st.session_state['object'+str(i)]]
                 })
-        st.write(row)
+        #st.write(row)
         st.session_state.data.loc[len(st.session_state.data)] = row
     st.dataframe(st.session_state.data) 
 
