@@ -25,7 +25,7 @@ def save_data(num_rows):
                 'object':[st.session_state['object'+str(i)]]
                 })
         st.write(row)
-        st.session_state.data.loc[len(t.session_state.data)] = row
+        st.session_state.data.loc[len(st.session_state.data)] = row
     st.dataframe(st.session_state.data) 
 
 form = st.form(
