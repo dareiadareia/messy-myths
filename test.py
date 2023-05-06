@@ -16,14 +16,13 @@ if 'data' not in st.session_state:
     st.session_state.data = data
 
 data = st.session_state.data
-st.dataframe(data)
 
 # source: https://discuss.streamlit.io/t/button-to-add-new-row-of-inputs/33245/2
-def save_data():
-    row = pd.DataFrame({'subject':[st.session_state.input_colA],
-            'predicate':[st.session_state.input_colB],
-            'object':[st.session_state.input_colC]})
-    st.session_state.data = pd.concat([st.session_state.data, row])
+# def save_data():
+#     row = pd.DataFrame({'subject':[st.session_state.input_colA],
+#             'predicate':[st.session_state.input_colB],
+#             'object':[st.session_state.input_colC]})
+#     st.session_state.data = pd.concat([st.session_state.data, row])
 
 form = st.form(clear_on_submit=True, key='input_form'+str(st.session_state.n_rows))
 with form:
@@ -63,9 +62,11 @@ with form:
                   placeholder='Leda', disabled=False, 
                   label_visibility="visible")
     
-    submit = st.form_submit_button("Save sequence")
+   submit = st.form_submit_button("Save sequence")
 
-#add_row = st.button(label="add")
-#if add_row:
-#    st.session_state.n_rows += 1
-#    st.experimental_rerun()
+st.dataframe(data) 
+
+add_row = st.button(label="add")
+if add_row:
+    st.session_state.n_rows += 1
+    st.experimental_rerun()
