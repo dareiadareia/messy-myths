@@ -68,4 +68,4 @@ with form:
                       label_visibility="visible")
     submit = st.form_submit_button("Save sequence", on_click=save_data(num_rows))
 
-st.dataframe(data) 
+st.dataframe(st.session_state.data) 
