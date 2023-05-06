@@ -43,6 +43,8 @@ with st.form(key='columns_in_form'):
                 placeholder='Leda', disabled=False, 
                 label_visibility="visible")
 
+submit = form.form_submit_button("Save sequence")
+
 if st.button('Next hyleme'):
     st.write('Ok!')
 else:
