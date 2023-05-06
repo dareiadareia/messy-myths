@@ -19,7 +19,7 @@ data = st.session_state.data
 st.dataframe(data)
 
 # source: https://discuss.streamlit.io/t/button-to-add-new-row-of-inputs/33245/2
-def add_form():
+def save_data():
     row = pd.DataFrame({'subject':[st.session_state.input_colA],
             'predicate':[st.session_state.input_colB],
             'object':[st.session_state.input_colC]})
@@ -33,7 +33,7 @@ with form:
       subj = st.text_input('Who', 
                   value="", 
                   max_chars=None, 
-                  key="subject"+str(i), 
+                  key="subject", 
                   type="default", 
                   help=None, 
                   autocomplete=None, 
@@ -44,7 +44,7 @@ with form:
       pred = st.text_input('Does what', 
                   value="", 
                   max_chars=None, 
-                  key="predicate"+str(i), 
+                  key="predicate", 
                   type="default", 
                   help=None, 
                   autocomplete=None, 
@@ -55,7 +55,7 @@ with form:
       obj = st.text_input('To whom', 
                   value="", 
                   max_chars=None, 
-                  key="object"+str(i), 
+                  key="object", 
                   type="default", 
                   help=None, 
                   autocomplete=None, 
@@ -65,7 +65,7 @@ with form:
     
     submit = st.form_submit_button("Save sequence")
 
-add_row = st.button(label="add")
-if add_row:
-    st.session_state.n_rows += 1
-    st.experimental_rerun()
+#add_row = st.button(label="add")
+#if add_row:
+#    st.session_state.n_rows += 1
+#    st.experimental_rerun()
