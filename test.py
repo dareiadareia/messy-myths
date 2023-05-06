@@ -25,6 +25,7 @@ def save_data(num_rows):
                 })
         st.write(row)
         st.session_state.data = pd.concat([st.session_state.data, row])
+        print(st.session_state.data)
 
 form = st.form(
     #clear_on_submit=True, 
