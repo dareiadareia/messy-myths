@@ -28,7 +28,7 @@ def save_data(num_rows):
         print(st.session_state.data)
 
 form = st.form(
-    #clear_on_submit=True, 
+    clear_on_submit=True, 
     key='input_form')
 with form:
     c1, c2, c3 = st.columns(3)
