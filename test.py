@@ -30,7 +30,7 @@ def add_form():
             'object':[st.session_state.input_colC]})
     st.session_state.data = pd.concat([st.session_state.data, row])
 
-form = st.form(key='columns_in_form'):
+form = st.form(key='columns_in_form')
 with form:
   c1, c2, c3 = st.columns(3)
   for i in range(1, n_rows+1):
