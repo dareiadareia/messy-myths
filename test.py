@@ -11,12 +11,6 @@ st.title('Enter hylemes below')
 if 'n_rows' not in st.session_state:
     st.session_state.n_rows = 1
 
-add_row = st.button(label="add")
-
-if add_row:
-    st.session_state.n_rows += 1
-    st.experimental_rerun()
-
 if 'data' not in st.session_state:
     data = pd.DataFrame({'subject':[],'predicate':[],'object':[]})
     st.session_state.data = data
@@ -68,5 +62,10 @@ with form:
                   on_change=None, 
                   placeholder='Leda', disabled=False, 
                   label_visibility="visible")
+    add_row = st.button(label="add")
+
+    if add_row:
+        st.session_state.n_rows += 1
+        st.experimental_rerun()
 
     submit = st.form_submit_button("Save sequence")
