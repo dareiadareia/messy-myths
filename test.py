@@ -12,7 +12,7 @@ if 'n_rows' not in st.session_state:
 
 add_row = st.button(label="add")
 
-if add:
+if add_row:
     st.session_state.n_rows += 1
     st.experimental_rerun()
 
