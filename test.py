@@ -33,7 +33,7 @@ with form:
     c1, c2, c3 = st.columns(3)
     for i in range(num_rows):
         with c1:
-          subj = st.text_input('Who', 
+            subj = st.text_input('Who', 
                       value="", 
                       max_chars=None, 
                       key="subject"+str(i), 
@@ -44,7 +44,7 @@ with form:
                       placeholder='Zeus', disabled=False, 
                       label_visibility="visible")
         with c2:
-          pred = st.text_input('Does what', 
+            pred = st.text_input('Does what', 
                       value="", 
                       max_chars=None, 
                       key="predicate"+str(i), 
@@ -55,7 +55,7 @@ with form:
                       placeholder='sees', disabled=False, 
                       label_visibility="visible")
         with c3:
-          obj = st.text_input('To whom', 
+            obj = st.text_input('To whom', 
                       value="", 
                       max_chars=None, 
                       key="object"+str(i), 
