@@ -24,9 +24,7 @@ def save_data(num_rows):
                 'object':[st.session_state['object'+str(i)]]
                 })
         st.write(row)
-        data = pd.concat([st.session_state.data, row])
-        st.write(data)
-
+        st.session_state.data = pd.concat([st.session_state.data, row])
 
 form = st.form(
     #clear_on_submit=True, 
