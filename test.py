@@ -26,7 +26,7 @@ data = st.session_state.data
 
 form = st.form(clear_on_submit=True, key='input_form'+str(st.session_state.n_rows))
 with form:
-  c1, c2, c3 = st.columns(3)
+    c1, c2, c3 = st.columns(3)
     for i in range(1, st.session_state.n_rows+1):
         with c1:
           subj = st.text_input('Who', 
