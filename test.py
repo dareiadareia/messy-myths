@@ -34,7 +34,7 @@ def add_form():
 form = st.form(key='columns_in_form')
 with form:
   c1, c2, c3 = st.columns(3)
-  for i in range(1, n_rows+1):
+  for i in range(1, st.session_state.n_rows+1):
     with c1:
       subj = st.text_input('Who', 
                   value="", 
