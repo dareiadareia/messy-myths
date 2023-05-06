@@ -10,11 +10,9 @@ st.title('Enter hylemes below')
 
 num_rows = st.slider('Number of Rows', min_value=1,max_value=10,value=1)
 
-#if 'data' not in st.session_state:
-#    data = pd.DataFrame({'subject':[],'predicate':[],'object':[]})
-#    st.session_state.data = data
-
-data = st.session_state.data
+if 'data' not in st.session_state:
+    data = pd.DataFrame({'subject':[],'predicate':[],'object':[]})
+    st.session_state.data = data
 
 #source: https://discuss.streamlit.io/t/button-to-add-new-row-of-inputs/33245/2
 def save_data(num_rows):
