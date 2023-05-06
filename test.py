@@ -69,4 +69,4 @@ with form:
                   placeholder='Leda', disabled=False, 
                   label_visibility="visible")
 
-  submit = st.form_submit_button("Save sequence")
+    submit = st.form_submit_button("Save sequence")
