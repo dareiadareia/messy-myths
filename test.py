@@ -27,41 +27,40 @@ data = st.session_state.data
 form = st.form(clear_on_submit=True, key='input_form'+str(st.session_state.n_rows))
 with form:
   c1, c2, c3 = st.columns(3)
-  for i in range(1, st.session_state.n_rows+1):
-    with c1:
-      subj = st.text_input('Who', 
-                  value="", 
-                  max_chars=None, 
-                  key="subject"+str(i), 
-                  type="default", 
-                  help=None, 
-                  autocomplete=None, 
-                  on_change=None, 
-                  placeholder='Zeus', disabled=False, 
-                  label_visibility="visible")
-    with c2:
-      pred = st.text_input('Does what', 
-                  value="", 
-                  max_chars=None, 
-                  key="predicate"+str(i), 
-                  type="default", 
-                  help=None, 
-                  autocomplete=None, 
-                  on_change=None, 
-                  placeholder='sees', disabled=False, 
-                  label_visibility="visible")
-    with c3:
-      obj = st.text_input('To whom', 
-                  value="", 
-                  max_chars=None, 
-                  key="object"+str(i), 
-                  type="default", 
-                  help=None, 
-                  autocomplete=None, 
-                  on_change=None, 
-                  placeholder='Leda', disabled=False, 
-                  label_visibility="visible")
-    
+    for i in range(1, st.session_state.n_rows+1):
+        with c1:
+          subj = st.text_input('Who', 
+                      value="", 
+                      max_chars=None, 
+                      key="subject"+str(i), 
+                      type="default", 
+                      help=None, 
+                      autocomplete=None, 
+                      on_change=None, 
+                      placeholder='Zeus', disabled=False, 
+                      label_visibility="visible")
+        with c2:
+          pred = st.text_input('Does what', 
+                      value="", 
+                      max_chars=None, 
+                      key="predicate"+str(i), 
+                      type="default", 
+                      help=None, 
+                      autocomplete=None, 
+                      on_change=None, 
+                      placeholder='sees', disabled=False, 
+                      label_visibility="visible")
+        with c3:
+          obj = st.text_input('To whom', 
+                      value="", 
+                      max_chars=None, 
+                      key="object"+str(i), 
+                      type="default", 
+                      help=None, 
+                      autocomplete=None, 
+                      on_change=None, 
+                      placeholder='Leda', disabled=False, 
+                      label_visibility="visible")
     submit = st.form_submit_button("Save sequence")
 
 st.dataframe(data) 
