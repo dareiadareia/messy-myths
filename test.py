@@ -19,9 +19,9 @@ data = st.session_state.data
 #source: https://discuss.streamlit.io/t/button-to-add-new-row-of-inputs/33245/2
 def save_data(num_rows):
     for i in range(1, num_rows+1):
-        row = pd.DataFrame({'subject':[st.session_state[subject+str(i)]],
-                'predicate':[st.session_state[predicate+str(i)]],
-                'object':[st.session_state[object+str(i)]]
+        row = pd.DataFrame({'subject':[st.session_state['subject'+str(i)]],
+                'predicate':[st.session_state['predicate'+str(i)]],
+                'object':[st.session_state['object'+str(i)]]
                 })
     st.session_state.data = pd.concat([st.session_state.data, row])
 
