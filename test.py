@@ -7,7 +7,7 @@ import streamlit as st
 
 st.title('Enter hylemes below')
 
-with st.form(key='columns_in_form'):
+with st.form(key='columns_in_form') as form:
   c1, c2, c3 = st.columns(3)
   with c1:
     subj = st.text_input('Who', 
