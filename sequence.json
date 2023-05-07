@@ -1,1 +1,1 @@
-[{"subject": ["Ge"], "predicate": ["gives birth to"], "object": ["Typhoeus"]}, {"subject": ["Typhoeus"], "predicate": ["desires to rule the"], "object": ["Universe"]}, {"subject": ["Zeus"], "predicate": ["fights"], "object": ["Typhoeus"]}, {"subject": ["Zeus"], "predicate": ["defeats"], "object": ["Typhoeus"]}]
+[{"subject": ["Zeus"], "predicate": ["likes"], "object": ["Leda"]}, {"subject": ["Leda"], "predicate": ["bears"], "object": ["child"]}]
