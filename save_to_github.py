@@ -5,6 +5,7 @@ import base64
 import json
 import datetime
 import string
+import pickle
 
 
 def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, branch, user, token):

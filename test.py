@@ -5,6 +5,7 @@ __author__ = 'dareia'
 #import os
 import pandas as pd
 import streamlit as st
+import pickle
 
 st.title('Enter hylemes below')
 
