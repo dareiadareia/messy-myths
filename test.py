@@ -87,6 +87,6 @@ def add_new_sequence_to_json(sequence_dict):
         branch='main', 
         user = st.secrets.github.user, 
         token = st.secrets.github.token)
-    st.secrets["db_username"]
+    
 
 st.button("Submit sequence", on_click=add_new_sequence_to_json(sequence_dict))
