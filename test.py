@@ -38,19 +38,19 @@ with form:
         c1, c2, c3 = st.columns(3)
         #with st.container():
         with c1:
-            subj = st.text_input('subject', 
-                      value="Who", 
-                      max_chars=None, 
-                      key="subject"+str(i), 
-                      type="default", 
-                      help=None, 
-                      autocomplete=None, 
-                      on_change=None, 
-                      placeholder='Zeus', disabled=False, 
-                      label_visibility="collapsed")
+            subj = st.text_input(label='subject', 
+                value="", 
+                max_chars=None, 
+                key="subject"+str(i), 
+                type="default", 
+                help=None, 
+                autocomplete=None, 
+                on_change=None, 
+                placeholder='Zeus', disabled=False, 
+                label_visibility="collapsed")
         with c2:
-            pred = st.text_input('predicate', 
-                      value="does what", 
+            pred = st.text_input(label='predicate', 
+                      value="", 
                       max_chars=None, 
                       key="predicate"+str(i), 
                       type="default", 
@@ -60,8 +60,8 @@ with form:
                       placeholder='sees', disabled=False, 
                       label_visibility="collapsed")
         with c3:
-            obj = st.text_input('object', 
-                      value="to whom", 
+            obj = st.text_input(label='object', 
+                      value="", 
                       max_chars=None, 
                       key="object"+str(i), 
                       type="default", 
