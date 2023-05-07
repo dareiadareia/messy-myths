@@ -49,8 +49,8 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
             r_old_data_json = r_old_data.json()
             old_data = r_old_data_json["content"]
             #old_data = file["content"]
-            print(old_data)
-            print(old_data.decode('utf-8'))
+            #print(old_data)
+            #print(old_data.decode('utf-8'))
 
     # if sha is None after the for loop, we did not find the file name!
     if sha is None:
