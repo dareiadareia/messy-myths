@@ -62,11 +62,8 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
         with open(fileName) as data:
             print(data)
             content = base64.b64encode(data.read().encode())
-            #content = data.read()
-            inputdata["content"] = content.decode('utf8')
     elif file_or_variable == 'variable':
         content = pickle.dumps(fileName)
-        inputdata["content"] = pickle.loads(content)
     else:
         print('Wrong parameter (file_or_variable)!')
 
@@ -75,7 +72,10 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
     inputdata["path"] = gitHubFileName
     inputdata["branch"] = branch
     inputdata["message"] = message
-    #inputdata["content"] = content.decode('utf8')
+    if file_or_variable == 'file':
+        inputdata["content"] = content.decode('utf8')
+    if file_or_variable == 'variable':
+        inputdata["content"] = pickle.loads(content)
     if sha:
         inputdata["sha"] = str(sha)
     print(inputdata)
