@@ -19,7 +19,6 @@ def save_data(num_rows):
     data = pd.DataFrame({'subject':[],'predicate':[],'object':[]})
     st.session_state.data = data
     for i in range(num_rows):
-        st.write(i)
         row = pd.Series({'subject':[st.session_state['subject'+str(i)]],
                 'predicate':[st.session_state['predicate'+str(i)]],
                 'object':[st.session_state['object'+str(i)]]
