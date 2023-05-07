@@ -1,3 +1,5 @@
+# source https://gist.github.com/avullo/b8153522f015a8b908072833b95c3408
+
 import requests
 import base64
 import json
@@ -5,7 +7,7 @@ import datetime
 import string
 
 
-def push_to_repo_branch(gitHubFileName, fileName, repo_slug, branch, user, token):
+def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, branch, user, token):
     '''
     Push file update to GitHub repo
     
@@ -41,23 +43,41 @@ def push_to_repo_branch(gitHubFileName, fileName, repo_slug, branch, user, token
         # Found file, get the sha code
         if file['path'] == gitHubFileName:
             sha = file['sha']
+            # here i am trying to read the file's content, definitely some bad code
+            print(file)
+            r_old_data = requests.get(file["url"])
+            r_old_data_json = r_old_data.json()
+            old_data = r_old_data_json["content"]
+            #old_data = file["content"]
+            print(old_data)
+            print(old_data.decode('utf-8'))
 
     # if sha is None after the for loop, we did not find the file name!
     if sha is None:
         print("Could not find " + gitHubFileName + " in repos 'tree' ")
         raise Exception
 
-    with open(fileName) as data:
-        content = base64.b64encode(data.read())
+    if file_or_variable == 'file':
+        with open(fileName) as data:
+            print(data)
+            content = base64.b64encode(data.read().encode())
+            #content = data.read()
+            inputdata["content"] = content.decode('utf8')
+    elif file_or_variable == 'variable':
+        content = pickle.dumps(fileName).encode('base64', 'strict')
+        inputdata["content"] = pickle.loads(content.decode('base64', 'strict'))
+    else:
+        print('Wrong parameter (file_or_variable)!')
 
     # gathered all the data, now let's push
     inputdata = {}
     inputdata["path"] = gitHubFileName
     inputdata["branch"] = branch
     inputdata["message"] = message
-    inputdata["content"] = content
+    #inputdata["content"] = content.decode('utf8')
     if sha:
         inputdata["sha"] = str(sha)
+    print(inputdata)
 
     updateURL = "https://api.github.com/repos/{0}/contents/{1}".format(repo_slug, gitHubFileName)
     try:

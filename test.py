@@ -69,5 +69,24 @@ with form:
                       on_change=None, 
                       placeholder='Leda', disabled=False, 
                       label_visibility="collapsed")
-    submit = st.form_submit_button("Save sequence", on_click=save_data(num_rows))
+    submit = st.form_submit_button("Process sequence", on_click=save_data(num_rows))
 
+sequence_dict = st.session_state.data.to_dict('index')
+
+st.header("Check and submit your sequence")
+
+st.write("Your surrent sequence:", sequence_dict)
+
+
+st.button("Submit sequence", on_click=add_new_sequence_to_json(sequence_dict))
+
+def add_new_sequence_to_json(sequence_dict):
+    from save_to_github import push_to_repo_branch
+    push_to_repo_branch('variable',
+        gitHubFileName='sequences.json', 
+        fileName=sequence_dict, 
+        repo_slug='dareiadareia/messy-myths', 
+        branch=main, 
+        user = st.secrets.github.user, 
+        token = st.secrets.github.token)
+    st.secrets["db_username"]
