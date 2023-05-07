@@ -38,8 +38,8 @@ with form:
         c1, c2, c3 = st.columns(3)
         #with st.container():
         with c1:
-            subj = st.text_input('', 
-                      value="", 
+            subj = st.text_input('subject', 
+                      value="Who", 
                       max_chars=None, 
                       key="subject"+str(i), 
                       type="default", 
@@ -47,10 +47,10 @@ with form:
                       autocomplete=None, 
                       on_change=None, 
                       placeholder='Zeus', disabled=False, 
-                      label_visibility="visible")
+                      label_visibility="collapsed")
         with c2:
-            pred = st.text_input('', 
-                      value="", 
+            pred = st.text_input('predicate', 
+                      value="does what", 
                       max_chars=None, 
                       key="predicate"+str(i), 
                       type="default", 
@@ -58,10 +58,10 @@ with form:
                       autocomplete=None, 
                       on_change=None, 
                       placeholder='sees', disabled=False, 
-                      label_visibility="visible")
+                      label_visibility="collapsed")
         with c3:
-            obj = st.text_input('', 
-                      value="", 
+            obj = st.text_input('object', 
+                      value="to whom", 
                       max_chars=None, 
                       key="object"+str(i), 
                       type="default", 
@@ -69,45 +69,6 @@ with form:
                       autocomplete=None, 
                       on_change=None, 
                       placeholder='Leda', disabled=False, 
-                      label_visibility="visible")
+                      label_visibility="collapsed")
     submit = st.form_submit_button("Save sequence", on_click=save_data(num_rows))
-
-# with form:
-#     #c1, c2, c3 = st.columns(3)
-#     for i in range(num_rows):
-#         #with st.container():
-#         with c1:
-#             subj = st.text_input('', 
-#                       value="", 
-#                       max_chars=None, 
-#                       key="subject"+str(i), 
-#                       type="default", 
-#                       help=None, 
-#                       autocomplete=None, 
-#                       on_change=None, 
-#                       placeholder='Zeus', disabled=False, 
-#                       label_visibility="visible")
-#         with c2:
-#             pred = st.text_input('', 
-#                       value="", 
-#                       max_chars=None, 
-#                       key="predicate"+str(i), 
-#                       type="default", 
-#                       help=None, 
-#                       autocomplete=None, 
-#                       on_change=None, 
-#                       placeholder='sees', disabled=False, 
-#                       label_visibility="visible")
-#         with c3:
-#             obj = st.text_input('', 
-#                       value="", 
-#                       max_chars=None, 
-#                       key="object"+str(i), 
-#                       type="default", 
-#                       help=None, 
-#                       autocomplete=None, 
-#                       on_change=None, 
-#                       placeholder='Leda', disabled=False, 
-#                       label_visibility="visible")
-#     submit = st.form_submit_button("Save sequence", on_click=save_data(num_rows))
 
