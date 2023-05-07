@@ -1,1 +1,1 @@
-{"0": {"subject": ["Javanese"], "predicate": ["not have"], "object": ["causatives"]}, "1": {"subject": ["Nivkh"], "predicate": ["has"], "object": ["causative"]}, "2": {"subject": ["Bashkir"], "predicate": ["has a lot"], "object": ["causatives"]}}
+[{"index": 0, "subject": ["Javanese"], "predicate": ["not have"], "object": ["causatives"]}, {"index": 1, "subject": ["Nivkh"], "predicate": ["has"], "object": ["causative"]}, {"index": 2, "subject": ["Bashkir"], "predicate": ["has a lot"], "object": ["causatives"]}]
