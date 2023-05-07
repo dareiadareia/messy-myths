@@ -1,1 +1,1 @@
-[{"subject": ["Zeus"], "predicate": ["likes"], "object": ["Leda"]}, {"subject": ["Leda"], "predicate": ["bears"], "object": ["child"]}]
+[{"subject": ["Hedgehog"], "predicate": ["likes"], "object": ["Panda"]}, {"subject": ["Panda"], "predicate": ["does"], "object": ["Hylistics"]}, {"subject": ["Hedgehog"], "predicate": ["programs"], "object": ["Tool"]}, {"subject": ["Panda"], "predicate": ["uses"], "object": ["Tool"]}, {"subject": [""], "predicate": [""], "object": [""]}]
