@@ -83,7 +83,7 @@ def add_new_sequence_to_json(sequence_dict):
         gitHubFileName='sequences.json', 
         fileName=sequence_dict, 
         repo_slug='dareiadareia/messy-myths', 
-        branch=main, 
+        branch='main', 
         user = st.secrets.github.user, 
         token = st.secrets.github.token)
     st.secrets["db_username"]
