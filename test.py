@@ -73,8 +73,6 @@ with form:
 
 sequence_dict = st.session_state.data.to_dict('index')
 
-def print_sequence(sequence_dict):
-
 
 if st.button("Check sequence"):
     st.write("Your surrent sequence:", sequence_dict)
