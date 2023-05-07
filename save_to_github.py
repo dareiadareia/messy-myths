@@ -65,8 +65,8 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
             #content = data.read()
             inputdata["content"] = content.decode('utf8')
     elif file_or_variable == 'variable':
-        content = pickle.dumps(fileName).encode('base64', 'strict')
-        inputdata["content"] = pickle.loads(content.decode('base64', 'strict'))
+        content = pickle.dumps(fileName)
+        inputdata["content"] = pickle.loads(content)
     else:
         print('Wrong parameter (file_or_variable)!')
 
