@@ -73,12 +73,11 @@ with form:
 
 sequence_dict = st.session_state.data.to_dict('index')
 
-st.header("Check and submit your sequence")
-
-st.write("Your surrent sequence:", sequence_dict)
+def print_sequence(sequence_dict):
 
 
-st.button("Submit sequence", on_click=add_new_sequence_to_json(sequence_dict))
+if st.button("Check sequence"):
+    st.write("Your surrent sequence:", sequence_dict)
 
 def add_new_sequence_to_json(sequence_dict):
     from save_to_github import push_to_repo_branch
@@ -90,3 +89,5 @@ def add_new_sequence_to_json(sequence_dict):
         user = st.secrets.github.user, 
         token = st.secrets.github.token)
     st.secrets["db_username"]
+
+st.button("Submit sequence", on_click=add_new_sequence_to_json(sequence_dict))
