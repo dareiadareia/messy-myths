@@ -80,7 +80,7 @@ if st.button("Check sequence"):
 def add_new_sequence_to_json(sequence_dict):
     from save_to_github import push_to_repo_branch
     push_to_repo_branch(file_or_variable='variable',
-        gitHubFileName='sequences.json', 
+        gitHubFileName='sequence.json', 
         fileName=sequence_dict, 
         repo_slug='dareiadareia/messy-myths', 
         branch='main', 
