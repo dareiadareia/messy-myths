@@ -72,7 +72,7 @@ with form:
                       label_visibility="collapsed")
     submit = st.form_submit_button("Process sequence", on_click=save_data(num_rows))
 
-sequence_dict = st.session_state.data.to_dict('index')
+sequence_dict = st.session_state.data.reset_index().to_dict('records')
 
 
 if st.button("Check sequence"):
