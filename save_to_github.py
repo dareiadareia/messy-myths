@@ -48,10 +48,11 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
             print(file)
             r_old_data = requests.get(file["url"])
             r_old_data_json = r_old_data.json()
-            old_data = r_old_data_json["content"]
-            #old_data = file["content"]
-            #print(old_data)
-            #print(old_data.decode('utf-8'))
+            print(r_old_data_json)
+            old_content = r_old_data_json["content"].encode().decode('utf-8')
+            print(old_content)
+            print(type(old_content))
+
 
     # if sha is None after the for loop, we did not find the file name!
     if sha is None:
@@ -63,7 +64,7 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
             print(data)
             content = base64.b64encode(data.read().encode())
     elif file_or_variable == 'variable':
-        content = base64.b64encode(json.dumps(fileName).encode())
+        new_content = json.dumps(fileName).encode()
         #content = pickle.dumps(fileName)
     else:
         print('Wrong parameter (file_or_variable)!')
@@ -76,7 +77,13 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
     if file_or_variable == 'file':
         inputdata["content"] = content.decode('utf8')
     if file_or_variable == 'variable':
-        inputdata["content"] = content.decode('utf-8')
+        temp = old_content.decode('utf-8') + new_content.decode('utf-8')
+        print(temp)
+        inputdata["content"] = ''
+        print('Input data content is:')
+        print(inputdata["content"])
+        #content = base64.b64encode(old_content + new_content)
+        inputdata["content"] = base64.b64encode(inputdata["content"])
     if sha:
         inputdata["sha"] = str(sha)
     print(inputdata)
