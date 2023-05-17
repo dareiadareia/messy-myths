@@ -6,6 +6,7 @@ import json
 import datetime
 import string
 import pickle
+import ast
 
 
 def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, branch, user, token):
@@ -48,10 +49,15 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
             print(file)
             r_old_data = requests.get(file["url"])
             r_old_data_json = r_old_data.json()
-            old_data = r_old_data_json["content"]
-            #old_data = file["content"]
-            #print(old_data)
-            #print(old_data.decode('utf-8'))
+            print(r_old_data_json)
+            print(r_old_data_json["content"])
+            print(type(r_old_data_json["content"]))
+            old_content_bytes = r_old_data_json["content"].encode('utf-8')
+            print(type(old_content_bytes))
+            old_content = json.loads(base64.b64decode(old_content_bytes))
+            print(f"old content is: {old_content}")
+            print(type(old_content))
+
 
     # if sha is None after the for loop, we did not find the file name!
     if sha is None:
@@ -63,8 +69,10 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
             print(data)
             content = base64.b64encode(data.read().encode())
     elif file_or_variable == 'variable':
-        content = base64.b64encode(json.dumps(fileName).encode())
-        #content = pickle.dumps(fileName)
+        #print(fileName)
+        #print(type(fileName))
+        new_content = fileName
+        #new_content = json.dumps(fileName)#.encode()
     else:
         print('Wrong parameter (file_or_variable)!')
 
@@ -74,12 +82,22 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
     inputdata["branch"] = branch
     inputdata["message"] = message
     if file_or_variable == 'file':
-        inputdata["content"] = content.decode('utf8')
-    if file_or_variable == 'variable':
         inputdata["content"] = content.decode('utf-8')
+    if file_or_variable == 'variable':
+        print('-'*10)
+        print(old_content)
+        print(f'old content type is {type(old_content)}')
+        print(new_content)
+        print(f'new content type is {type(new_content)}')
+        temp = json.dumps(old_content + new_content)
+        #temp = ast.literal_eval(old_content.decode('utf-8')) + ast.literal_eval(new_content.decode('utf-8'))
+        print(f'Input data content is: {temp}')
+        #content = base64.b64encode(old_content + new_content)
+        inputdata["content"] = base64.b64encode(temp.encode()).decode('utf-8')
     if sha:
         inputdata["sha"] = str(sha)
     print(inputdata)
+    print(json.dumps(inputdata))
 
     updateURL = "https://api.github.com/repos/{0}/contents/{1}".format(repo_slug, gitHubFileName)
     try:
