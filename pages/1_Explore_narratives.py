@@ -18,7 +18,7 @@ multiple_choice = [seq["title"] + f'({seq["passage reference"]})' for seq in lis
 
 selected = st.selectbox('Choose a story to compare',
 	multiple_choice,
-	key = narrative1,
+	#key = narrative1,
 	)
 
 
