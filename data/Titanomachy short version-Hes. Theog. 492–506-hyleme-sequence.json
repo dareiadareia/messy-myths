@@ -1,0 +1,37 @@
+{
+    "title": "Titanomachy short version",
+    "passage reference": "Hes. Theog. 492\u2013506",
+    "sequence id": "20220620151007",
+    "hyleme sequence": [
+        {
+            "subject": "Kronos",
+            "predicate": "throws up",
+            "object": "stone"
+        },
+        {
+            "subject": "Kronos",
+            "predicate": "throws up",
+            "object": "his children"
+        },
+        {
+            "subject": "Zeus",
+            "predicate": "places",
+            "object": "stone"
+        },
+        {
+            "subject": "Zeus",
+            "predicate": "frees",
+            "object": "Cyclopes"
+        },
+        {
+            "subject": "Cyclopes",
+            "predicate": "give thunderbolt+",
+            "object": "Zeus"
+        },
+        {
+            "subject": "Zeus",
+            "predicate": "rules",
+            "object": "mortals and immortals"
+        }
+    ]
+}
