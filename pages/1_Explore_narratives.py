@@ -21,7 +21,9 @@ selected = st.selectbox('Choose a story to compare',
 	#key = narrative1,
 	)
 
-
+for seq in list_of_seqs:
+	if seq["title"] + f'({seq["passage reference"]})' == selected:
+		st.table(pd.DataFrame.from_records(seq["hyleme sequence"]))
 
 #for seq in list_of_seqs:
 	# seq_id = seq["sequence id"]
