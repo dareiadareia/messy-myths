@@ -1,1 +1,1 @@
-[{'subject': 'Zeus', 'predicate': 'likes', 'object': 'Danae'}, {'subject': 'Danae', 'predicate': 'bears', 'object': 'child'}]
+[{"subject": "Zeus", "predicate": "likes", "object": "Danae"}, {"subject": "Danae", "predicate": "bears", "object": "child"}]
