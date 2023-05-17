@@ -1,0 +1,1 @@
+st.title('Welcome to the home page of this mini-app')
