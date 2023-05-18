@@ -17,7 +17,7 @@ for filename in os.listdir(directory_data):
 number_of_narratives = st.number_input('Number of narratives to compare')
 
 selected_narratives = []
-for i in number_of_narratives:
+for i in range(number_of_narratives):
 	selected_narratives.append(st.selectbox('Choose a story to compare',
 	multiple_choice,
 	#key = narrative1,
