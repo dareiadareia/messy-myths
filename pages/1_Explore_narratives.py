@@ -20,6 +20,9 @@ number_of_narratives = st.number_input('Number of narratives to compare',
 	value=1,
 	step=1)
 
+multiple_choice = [seq["title"] + f'({seq["passage reference"]})' for seq in list_of_seqs]
+
+
 selected_narratives = []
 for i in range(number_of_narratives):
 	selected_narratives.append(st.selectbox('Choose a story to compare',
@@ -28,8 +31,6 @@ for i in range(number_of_narratives):
 	key = f'narrative{i+1}'
 	)
 		)
-
-multiple_choice = [seq["title"] + f'({seq["passage reference"]})' for seq in list_of_seqs]
 
 
 for seq in list_of_seqs:
