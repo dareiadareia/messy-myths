@@ -28,7 +28,7 @@ multiple_choice = [seq["title"] + f'({seq["passage reference"]})' for seq in lis
 
 
 for seq in list_of_seqs:
-	if seq["title"] + f'({seq["passage reference"]})' == selected:
+	if seq["title"] + f'({seq["passage reference"]})' in selected_narratives:
 		st.table(pd.DataFrame.from_records(seq["hyleme sequence"]))
 
 #for seq in list_of_seqs:
