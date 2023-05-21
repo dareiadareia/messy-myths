@@ -24,7 +24,7 @@ number_of_narratives = st.number_input('Number of narratives to compare',
 	value=1,
 	step=1)
 
-if "selected_narratives" not in st.session_state:
+if "selected_narratives" not in st.session_state or st.button("Start again"):
 	st.session_state.selected_narratives=[]
 
 multiple_choice = [f'{seq["title"]} ({seq["passage reference"]})' for seq in list_of_seqs if f'{seq["title"]} ({seq["passage reference"]})' not in st.session_state.selected_narratives]
