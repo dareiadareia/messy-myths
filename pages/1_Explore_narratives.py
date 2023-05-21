@@ -100,9 +100,9 @@ with col1:
 		key='for_comparison')
 	with form1:
 		st.write('Choose comparison parametres')
-		st.checkbox('subject', key='checkbox_subj')
-		st.checkbox('predicate', key='checkbox_pred')
-		st.checkbox('object', key='checkbox_obj')
+		compare_subj = st.checkbox('subject', key='checkbox_subj')
+		compare_pred = st.checkbox('predicate', key='checkbox_pred')
+		compare_obj = st.checkbox('object', key='checkbox_obj')
 		submitted1 = st.form_submit_button("Save")
 with col2:
 	form2 = st.form(key='claimed_to_be_same')
@@ -135,9 +135,11 @@ with col2:
 			key='action2', label_visibility='collapsed')
 		submitted2 = st.form_submit_button("Save")
 
+comparison = [elem for elem in [compare_subj, compare_pred, compare_obj] if elem is True]
+
 if submitted1:
 	st.write(
-	f'Current settings: comparing by {st.session_state.for_comparison}.'
+	f'Current settings: comparing by {comparison}.'
 	)
 
 st.write('Comparison table')
