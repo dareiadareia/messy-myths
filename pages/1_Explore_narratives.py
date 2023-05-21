@@ -35,12 +35,14 @@ for i in range(number_of_narratives):
 	)
 		)
 
+selected_narratives = set(selected_narratives)
+
 narratives_to_show = []
 for seq in list_of_seqs:
-	if f'{seq["title"]} ({seq["passage reference"]})'  in selected_narratives:
+	if f'{seq["title"]} ({seq["passage reference"]})' in selected_narratives:
 		narratives_to_show.append(seq)
 
-#narratives_to_show
+narratives_to_show
 
 cols = st.columns(number_of_narratives)
 
