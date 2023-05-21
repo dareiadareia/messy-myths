@@ -103,7 +103,7 @@ with col1:
 		st.checkbox('subject', key='checkbox_subj')
 		st.checkbox('predicate', key='checkbox_pred')
 		st.checkbox('object', key='checkbox_obj')
-		st.form_submit_button("Save")
+		submitted1 = st.form_submit_button("Save")
 with col2:
 	form2 = st.form(key='claimed_to_be_same')
 	with form2:
@@ -133,10 +133,11 @@ with col2:
 			st.selectbox('', 
 			actions,
 			key='action2', label_visibility='collapsed')
-		st.form_submit_button("Save")
+		submitted2 = st.form_submit_button("Save")
 
-st.write(
-	f'Current settings: comparing by {st.for_comparison}.'
+if submitted1:
+	st.write(
+	f'Current settings: comparing by {st.session_state.for_comparison}.'
 	)
 
 st.write('Comparison table')
