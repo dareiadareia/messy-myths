@@ -81,6 +81,9 @@ def extract_actions(hyleme_sequence):
 			actions.append(hyleme['predicate'])
 	return(list(set(actions)))
 
+entities = [extract_entities(seq['hyleme sequence']) for seq in narratives_to_show]
+actions = [extract_actions(seq['hyleme sequence']) for seq in narratives_to_show]
+
 col1, col2 = st.columns(2)
 with col1:
 	form1 = st.form(
@@ -96,19 +99,19 @@ with col2:
 	with form2:
 		st.write('If you want to treat entities as identical for this comparison, select them')
 		currently_same = []
-		st.selectbox('', [extract_entities(seq['hyleme sequence']) for seq in narratives_to_show],
+		st.selectbox('', entities,
 			key='entity1', label_visibility='collapsed') 
 		'=' 
 		st.selectbox(
 			'', 
-			[extract_entities(seq['hyleme sequence']) for seq in narratives_to_show],
+			entities,
 			key='entity2', label_visibility='collapsed')
 		st.selectbox('', 
-			[extract_actions(seq['hyleme sequence']) for seq in narratives_to_show], 
+			actions, 
 			key='action1', label_visibility='collapsed') 
 		'=' 
 		st.selectbox('', 
-			[extract_actions(seq['hyleme sequence']) for seq in narratives_to_show], 
+			actions,
 			key='action2', label_visibility='collapsed')
 		st.form_submit_button("Save")
 
