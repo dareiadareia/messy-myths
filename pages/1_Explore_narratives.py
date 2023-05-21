@@ -64,12 +64,21 @@ for i, col in enumerate(cols):
 
 def extract_entities(hyleme_sequence):
 	# takes a list of dicts as input
-	return(set([x['subject'] for x in hyleme_sequence.items()] + [x['object'] for x in hyleme_sequence.items()]))
+	entities = []
+	for hyleme in hyleme_sequence:
+		if hyleme['subject'] not in entities:
+			entities.append(hyleme['subject'])
+		if hyleme['object'] not in entities:
+			entities.append(hyleme['object'])
+	return(set(entities))
 
 def extract_actions(hyleme_sequence):
 	# takes a list of dicts as input
-	return(set([x['predicate'] for x in hyleme_sequence.items()]))
-
+	actions = []
+	for hyleme in hyleme_sequence:
+		if hyleme['predicate'] not in actions:
+			actions.append(hyleme['predicate'])
+	return(set(actions))
 
 col1, col2 = st.columns(2)
 with col1:
