@@ -32,10 +32,16 @@ for i in range(number_of_narratives):
 	)
 		)
 
-
+narratives_to_show = []
 for seq in list_of_seqs:
 	if seq["title"] + f'({seq["passage reference"]})' in selected_narratives:
-		st.table(pd.DataFrame.from_records(seq["hyleme sequence"]))
+		narratives_to_show.append(seq)
+
+cols = st.columns(number_of_narratives)
+
+for i, col in enumerate(cols):
+	with col:
+		st.table(pd.DataFrame.from_records(narratives_to_show[i]["hyleme sequence"]))
 
 #for seq in list_of_seqs:
 	# seq_id = seq["sequence id"]
