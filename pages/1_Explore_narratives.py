@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 import json
-from st_aggrid import AgGrid
+# from st_aggrid import AgGrid
 
 st.title('Here you can explore and compare narratives')
 
