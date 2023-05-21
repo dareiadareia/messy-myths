@@ -81,8 +81,12 @@ def extract_actions(hyleme_sequence):
 			actions.append(hyleme['predicate'])
 	return(list(set(actions)))
 
-entities = [extract_entities(seq['hyleme sequence']) for seq in narratives_to_show]
-actions = [extract_actions(seq['hyleme sequence']) for seq in narratives_to_show]
+entities = []
+actions = []
+for seq in narratives_to_show:
+	entities += extract_entities(seq['hyleme sequence'])
+	actions += extract_actions(seq['hyleme sequence'])
+
 
 print('Entities are:')
 print(entities)
