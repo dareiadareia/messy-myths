@@ -56,9 +56,9 @@ with col1:
 	form = st.form('Elements to compare',
 		key='for_comparison')
 	with form:
-		st.checkbox('subject')
-		st.checkbox('predicate')
-		st.checkbox('object')
+		st.checkbox('subject', key='checkbox_subj')
+		st.checkbox('predicate', key='checkbox_pred')
+		st.checkbox('object', key='checkbox_obj')
 
 cols = st.columns(number_of_narratives)
 
