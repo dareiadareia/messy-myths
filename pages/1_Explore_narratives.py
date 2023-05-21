@@ -66,7 +66,7 @@ def extract_entities(hyleme_sequence):
 	# takes a list of dicts as input
 	entities = []
 	for hyleme in hyleme_sequence:
-		print(hyleme)
+		# print(hyleme)
 		if hyleme['subject'] not in entities:
 			entities.append(hyleme['subject'])
 		if hyleme['object'] not in entities:
@@ -84,8 +84,9 @@ def extract_actions(hyleme_sequence):
 entities = [extract_entities(seq['hyleme sequence']) for seq in narratives_to_show]
 actions = [extract_actions(seq['hyleme sequence']) for seq in narratives_to_show]
 
+print('Entities are:')
 print(entities)
-print(actions)
+# print(actions)
 
 col1, col2 = st.columns(2)
 with col1:
