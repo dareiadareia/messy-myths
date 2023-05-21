@@ -37,9 +37,12 @@ for seq in list_of_seqs:
 	if seq["title"] + f'({seq["passage reference"]})' in selected_narratives:
 		narratives_to_show.append(seq)
 
+print(narratives_to_show)
+
 cols = st.columns(number_of_narratives)
 
 for i, col in enumerate(cols):
+	print(i)
 	with col:
 		st.table(pd.DataFrame.from_records(narratives_to_show[i]["hyleme sequence"]))
 
