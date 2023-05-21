@@ -38,7 +38,7 @@ for i in range(number_of_narratives):
 	)
 		)
 
-st.session_state.selected_narratives = set(st.session_state.selected_narratives)
+st.session_state.selected_narratives = list(set(st.session_state.selected_narratives))
 
 narratives_to_show = []
 for seq in list_of_seqs:
