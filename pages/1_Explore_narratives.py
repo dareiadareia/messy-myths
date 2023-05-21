@@ -58,8 +58,8 @@ with col1:
 		st.checkbox('subject', key='checkbox_subj')
 		st.checkbox('predicate', key='checkbox_pred')
 		st.checkbox('object', key='checkbox_obj')
-	st.form_submit_button("Save")
-	
+		st.form_submit_button("Save")
+
 cols = st.columns(number_of_narratives)
 
 for i, col in enumerate(cols):
