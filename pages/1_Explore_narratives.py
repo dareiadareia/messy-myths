@@ -145,9 +145,10 @@ if compare_obj:
 
 comparison_str = ', '.join(comparison)
 
+'Current settings:'
 if submitted1:
 	st.write(
-	f'Current settings: comparing by {comparison_str}.'
+	f'- comparing by {comparison_str}.'
 	)
 
 st.write('Comparison table')
