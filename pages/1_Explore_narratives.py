@@ -15,8 +15,8 @@ for filename in os.listdir(directory_data):
 		with open(f) as file:
 			list_of_seqs.append(json.loads(file.read()))
 
-if "selected" in st.session_state:
-    del st.session_state.selected
+#if "selected" in st.session_state:
+#    del st.session_state.selected
 
 number_of_narratives = st.number_input('Number of narratives to compare', 
 	min_value=1,
@@ -24,15 +24,12 @@ number_of_narratives = st.number_input('Number of narratives to compare',
 	value=1,
 	step=1)
 
-if "multiple_choice" not in st.session_state:
-	st.session_state.multiple_choice = [f'{seq["title"]} ({seq["passage reference"]})' for seq in list_of_seqs]
-else:
-	st.session_state.multiple_choice = [f'{seq["title"]} ({seq["passage reference"]})' for seq in list_of_seqs if f'{seq["title"]} ({seq["passage reference"]})' not in st.session_state.multiple_choice]
+multiple_choice = [f'{seq["title"]} ({seq["passage reference"]})' for seq in list_of_seqs]
 
 selected_narratives = []
 for i in range(number_of_narratives):
 	selected_narratives.append(st.selectbox('Choose a story to compare',
-	st.session_state.multiple_choice,
+	multiple_choice,
 	#key = narrative1,
 	key = f'narrative{i+1}'
 	)
