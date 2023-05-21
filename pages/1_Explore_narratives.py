@@ -97,24 +97,24 @@ with col2:
 		st.write('If you want to treat entities as identical for this comparison, select them')
 		currently_same = []
 		st.selectbox('', [extract_entities(seq['hyleme sequence']) for seq in narratives_to_show],
-			key='entity1') 
+			key='entity1', label_visibility='collapsed') 
 		'=' 
 		st.selectbox(
 			'', 
 			[extract_entities(seq['hyleme sequence']) for seq in narratives_to_show],
-			key='entity2')
+			key='entity2', label_visibility='collapsed')
 		st.selectbox('', 
 			[extract_actions(seq['hyleme sequence']) for seq in narratives_to_show], 
-			key='action1') 
+			key='action1', label_visibility='collapsed') 
 		'=' 
 		st.selectbox('', 
 			[extract_actions(seq['hyleme sequence']) for seq in narratives_to_show], 
-			key='action2')
+			key='action2', label_visibility='collapsed')
 		st.form_submit_button("Save")
 
-st.subtitle('Comparison table')
+st.write('Comparison table')
 
 # comparison_df = ''
 
-comparison_df_editable = st.experimental_data_editor(comparison_df)
+# comparison_df_editable = st.experimental_data_editor(comparison_df)
 
