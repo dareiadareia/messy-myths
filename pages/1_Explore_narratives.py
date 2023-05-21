@@ -87,8 +87,8 @@ for seq in narratives_to_show:
 	entities += extract_entities(seq['hyleme sequence'])
 	actions += extract_actions(seq['hyleme sequence'])
 
-entities=entities.sorted()
-actions = actions.sorted()
+entities.sort()
+actions.sort()
 
 print('Entities are:')
 print(entities)
