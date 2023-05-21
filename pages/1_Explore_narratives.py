@@ -77,8 +77,11 @@ with col2:
 	with form2:
 		st.write('If you want to treat entities as identical for this comparison, select them')
 		currently_same = []
-		st.selectbox('', key='entity1', set([[seq['subject'] for seq in narratives_to_show] + [seq['object'] for seq in narratives_to_show]])) '=' st.selectbox('', key='entity2', set([[seq['subject'] for seq in narratives_to_show] + [seq['object'] for seq in narratives_to_show]]))
-		st.selectbox('', key='action1', set([seq['predicate'] for seq in narratives_to_show])) '=' st.selectbox('', key='action2', set([seq['predicate'] for seq in narratives_to_show]))
+		st.selectbox('', set([[seq['subject'] for seq in narratives_to_show] + [seq['object'] for seq in narratives_to_show]]),
+			key='entity1',) '=' st.selectbox('', 
+			set([[seq['subject'] for seq in narratives_to_show] + [seq['object'] for seq in narratives_to_show]]),
+			key='entity2')
+		st.selectbox('', set([seq['predicate'] for seq in narratives_to_show]), key='action1') '=' st.selectbox('', set([seq['predicate'] for seq in narratives_to_show]), key='action2')
 		st.form_submit_button("Save")
 
 st.subtitle('Comparison table')
