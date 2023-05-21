@@ -53,7 +53,7 @@ st.write('Choose comparison parametres')
 
 col1, col2 = st.columns(2)
 with col1:
-	form = st.form('Elements to compare',
+	form = st.form(label='Elements to compare',
 		key='for_comparison')
 	with form:
 		st.checkbox('subject', key='checkbox_subj')
