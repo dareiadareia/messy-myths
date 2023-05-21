@@ -49,17 +49,17 @@ for seq in list_of_seqs:
 
 # narratives_to_show
 
-st.write('Choose comparison parametres')
-
 col1, col2 = st.columns(2)
 with col1:
 	form = st.form(
 		key='for_comparison')
 	with form:
+		st.write('Choose comparison parametres')
 		st.checkbox('subject', key='checkbox_subj')
 		st.checkbox('predicate', key='checkbox_pred')
 		st.checkbox('object', key='checkbox_obj')
-
+	st.form_submit_button("Save")
+	
 cols = st.columns(number_of_narratives)
 
 for i, col in enumerate(cols):
