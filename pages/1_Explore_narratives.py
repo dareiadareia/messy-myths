@@ -66,6 +66,7 @@ def extract_entities(hyleme_sequence):
 	# takes a list of dicts as input
 	entities = []
 	for hyleme in hyleme_sequence:
+		print(hyleme)
 		if hyleme['subject'] not in entities:
 			entities.append(hyleme['subject'])
 		if hyleme['object'] not in entities:
@@ -95,19 +96,19 @@ with col2:
 	with form2:
 		st.write('If you want to treat entities as identical for this comparison, select them')
 		currently_same = []
-		st.selectbox('', [extract_entities(seq) for seq in narratives_to_show],
+		st.selectbox('', [extract_entities(seq['hyleme sequence']) for seq in narratives_to_show],
 			key='entity1') 
 		'=' 
 		st.selectbox(
 			'', 
-			[extract_entities(seq) for seq in narratives_to_show],
+			[extract_entities(seq['hyleme sequence']) for seq in narratives_to_show],
 			key='entity2')
 		st.selectbox('', 
-			[extract_actions(seq) for seq in narratives_to_show], 
+			[extract_actions(seq['hyleme sequence']) for seq in narratives_to_show], 
 			key='action1') 
 		'=' 
 		st.selectbox('', 
-			[extract_actions(seq) for seq in narratives_to_show], 
+			[extract_actions(seq['hyleme sequence']) for seq in narratives_to_show], 
 			key='action2')
 		st.form_submit_button("Save")
 
