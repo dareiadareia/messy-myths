@@ -105,9 +105,9 @@ with col1:
 		compare_obj = st.checkbox('object', key='checkbox_obj')
 		submitted1 = st.form_submit_button("Save")
 with col2:
+	st.write('If you want to treat entities/actions as identical for this comparison, select them here.')
 	form2 = st.form(key='entities_to_be_same')
 	with form2:
-		st.write('If you want to treat entities/actions as identical for this comparison, select them here.')
 		currently_same = []
 		'Entities:'
 		subcol1, subcol2, subcol3 =  st.columns([3,1,3])
