@@ -86,7 +86,9 @@ with col2:
 			key='entity2')
 		st.selectbox('', 
 			set([seq['predicate'] for seq in narratives_to_show]), 
-			key='action1') '=' st.selectbox('', 
+			key='action1') 
+		'=' 
+		st.selectbox('', 
 			set([seq['predicate'] for seq in narratives_to_show]), 
 			key='action2')
 		st.form_submit_button("Save")
