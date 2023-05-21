@@ -42,7 +42,7 @@ st.session_state.selected_narratives = set(st.session_state.selected_narratives)
 
 narratives_to_show = []
 for seq in list_of_seqs:
-	if f'{seq["title"]} ({seq["passage reference"]})' in selected_narratives:
+	if f'{seq["title"]} ({seq["passage reference"]})' in st.session_state.selected_narratives:
 		narratives_to_show.append(seq)
 
 # narratives_to_show
