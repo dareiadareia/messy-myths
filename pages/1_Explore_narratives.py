@@ -40,7 +40,7 @@ for seq in list_of_seqs:
 	if seq["title"] + f'({seq["passage reference"]})' in selected_narratives:
 		narratives_to_show.append(seq)
 
-#print(narratives_to_show)
+print(narratives_to_show)
 
 cols = st.columns(number_of_narratives)
 
