@@ -105,7 +105,7 @@ with col1:
 		compare_obj = st.checkbox('object', key='checkbox_obj')
 		submitted1 = st.form_submit_button("Save")
 with col2:
-	form2 = st.form(key='claimed_to_be_same')
+	form2 = st.form(key='entities_to_be_same')
 	with form2:
 		st.write('If you want to treat entities/actions as identical for this comparison, select them here.')
 		currently_same = []
@@ -121,6 +121,9 @@ with col2:
 			'', 
 			entities,
 			key='entity2', label_visibility='collapsed')
+		submitted3 = st.form_submit_button("Save")
+	form3 = st.form(key='entities_to_be_same')
+	with form3:
 		'Actions:'
 		subcol4, subcol5, subcol6 =  st.columns([3,1,3])
 		with subcol4:
@@ -133,7 +136,7 @@ with col2:
 			st.selectbox('', 
 			actions,
 			key='action2', label_visibility='collapsed')
-		submitted2 = st.form_submit_button("Save")
+		submitted3 = st.form_submit_button("Save")
 
 comparison = []
 if compare_subj:
@@ -151,7 +154,10 @@ if submitted1:
 	f'- comparing by {comparison_str}.'
 	)
 else:
-	st.write('no settings yet: please enter and save settings in the form above')
+	st.write('no settings yet (please enter and save settings in the form above)')
+
+
+
 
 st.write('Comparison table')
 
