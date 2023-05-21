@@ -108,7 +108,7 @@ with col2:
 		st.write('If you want to treat entities as identical for this comparison, select them')
 		currently_same = []
 		'Entities:'
-		subcol1, subcol2, subcol3 =  st.columns(3)
+		subcol1, subcol2, subcol3 =  st.columns([3,1,3])
 		with subcol1:
 			st.selectbox('', entities,
 			key='entity1', label_visibility='collapsed') 
@@ -120,7 +120,7 @@ with col2:
 			entities,
 			key='entity2', label_visibility='collapsed')
 		'Actions:'
-		subcol4, subcol5, subcol6 =  st.columns(3)
+		subcol4, subcol5, subcol6 =  st.columns([3,1,3])
 		with subcol4:
 			st.selectbox('', 
 			actions, 
