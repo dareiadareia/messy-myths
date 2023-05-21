@@ -122,7 +122,7 @@ with col2:
 			entities,
 			key='entity2', label_visibility='collapsed')
 		submitted3 = st.form_submit_button("Save")
-	form3 = st.form(key='entities_to_be_same')
+	form3 = st.form(key='actions_to_be_same')
 	with form3:
 		'Actions:'
 		subcol4, subcol5, subcol6 =  st.columns([3,1,3])
