@@ -49,6 +49,17 @@ for seq in list_of_seqs:
 
 # narratives_to_show
 
+st.write('Choose comparison parametres')
+
+col1, col2 = st.columns(2)
+with col1:
+	form = st.form('Elements to compare',
+		key='for_comparison')
+	with form:
+		st.checkbox('subject')
+		st.checkbox('predicate')
+		st.checkbox('object')
+
 cols = st.columns(number_of_narratives)
 
 for i, col in enumerate(cols):
@@ -62,5 +73,9 @@ for i, col in enumerate(cols):
 	# seq_as_table = pd.DataFrame.from_records(seq["hyleme sequence"])
 
 
+st.subtitle('Comparison table')
 
+# comparison_df = ''
+
+comparison_df_editable = st.experimental_data_editor(comparison_df)
 
