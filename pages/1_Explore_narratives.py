@@ -62,6 +62,15 @@ for i, col in enumerate(cols):
 	# seq_ref = seq["title"] + f'({seq["passage reference"]})'
 	# seq_as_table = pd.DataFrame.from_records(seq["hyleme sequence"])
 
+def extract_entities(hyleme_sequence):
+	# takes a list of dicts as input
+	return(set([x['subject'] for x in hyleme_sequence.items()] + [x['object'] for x in hyleme_sequence.items()]))
+
+def extract_actions(hyleme_sequence):
+	# takes a list of dicts as input
+	return(set([x['predicate'] for x in hyleme_sequence.items()]))
+
+
 col1, col2 = st.columns(2)
 with col1:
 	form1 = st.form(
@@ -77,19 +86,19 @@ with col2:
 	with form2:
 		st.write('If you want to treat entities as identical for this comparison, select them')
 		currently_same = []
-		st.selectbox('', set([[seq['subject'] for seq in narratives_to_show] + [seq['object'] for seq in narratives_to_show]]),
+		st.selectbox('', [extract_entities(seq) for seq in narratives_to_show],
 			key='entity1') 
 		'=' 
 		st.selectbox(
 			'', 
-			set([[seq['subject'] for seq in narratives_to_show] + [seq['object'] for seq in narratives_to_show]]),
+			[extract_entities(seq) for seq in narratives_to_show],
 			key='entity2')
 		st.selectbox('', 
-			set([seq['predicate'] for seq in narratives_to_show]), 
+			[extract_actions(seq) for seq in narratives_to_show], 
 			key='action1') 
 		'=' 
 		st.selectbox('', 
-			set([seq['predicate'] for seq in narratives_to_show]), 
+			[extract_actions(seq) for seq in narratives_to_show], 
 			key='action2')
 		st.form_submit_button("Save")
 
