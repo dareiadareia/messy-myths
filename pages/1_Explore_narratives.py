@@ -24,25 +24,27 @@ number_of_narratives = st.number_input('Number of narratives to compare',
 	value=1,
 	step=1)
 
-if "selected_narratives" not in st.session_state or st.button("Start again"):
-	st.session_state.selected_narratives=[]
+# if "selected_narratives" not in st.session_state or st.button("Start again"):
+# 	st.session_state.selected_narratives=[]
 
-multiple_choice = [f'{seq["title"]} ({seq["passage reference"]})' for seq in list_of_seqs if f'{seq["title"]} ({seq["passage reference"]})' not in st.session_state.selected_narratives]
+selected_narratives=[]
+
+multiple_choice = [f'{seq["title"]} ({seq["passage reference"]})' for seq in list_of_seqs if f'{seq["title"]} ({seq["passage reference"]})' not in selected_narratives]
 
 # selected_narratives = []
 for i in range(number_of_narratives):
-	st.session_state.selected_narratives.append(st.selectbox('Choose a story to compare',
+	selected_narratives.append(st.selectbox('Choose a story to compare',
 	multiple_choice,
 	#key = narrative1,
 	key = f'narrative{i+1}'
 	)
 		)
 
-st.session_state.selected_narratives = list(set(st.session_state.selected_narratives))
+selected_narratives = list(set(selected_narratives))
 
 narratives_to_show = []
 for seq in list_of_seqs:
-	if f'{seq["title"]} ({seq["passage reference"]})' in st.session_state.selected_narratives:
+	if f'{seq["title"]} ({seq["passage reference"]})' in selected_narratives:
 		narratives_to_show.append(seq)
 
 # narratives_to_show
