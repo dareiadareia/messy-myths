@@ -71,7 +71,7 @@ def extract_entities(hyleme_sequence):
 			entities.append(hyleme['subject'])
 		if hyleme['object'] not in entities:
 			entities.append(hyleme['object'])
-	return(set(entities))
+	return(list(set(entities)))
 
 def extract_actions(hyleme_sequence):
 	# takes a list of dicts as input
@@ -79,7 +79,7 @@ def extract_actions(hyleme_sequence):
 	for hyleme in hyleme_sequence:
 		if hyleme['predicate'] not in actions:
 			actions.append(hyleme['predicate'])
-	return(set(actions))
+	return(list(set(actions)))
 
 col1, col2 = st.columns(2)
 with col1:
