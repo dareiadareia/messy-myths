@@ -53,7 +53,7 @@ for seq in list_of_seqs:
 cols = st.columns(number_of_narratives)
 
 for i, col in enumerate(cols):
-	print(i)
+	# print(i)
 	with col:
 		st.table(pd.DataFrame.from_records(narratives_to_show[i]["hyleme sequence"]))
 
@@ -90,8 +90,8 @@ for seq in narratives_to_show:
 entities.sort()
 actions.sort()
 
-print('Entities are:')
-print(entities)
+# print('Entities are:')
+# print(entities)
 # print(actions)
 
 col1, col2 = st.columns(2)
@@ -107,7 +107,7 @@ with col1:
 with col2:
 	form2 = st.form(key='claimed_to_be_same')
 	with form2:
-		st.write('If you want to treat entities as identical for this comparison, select them')
+		st.write('If you want to treat entities/actions as identical for this comparison, select them here.')
 		currently_same = []
 		'Entities:'
 		subcol1, subcol2, subcol3 =  st.columns([3,1,3])
@@ -134,6 +134,10 @@ with col2:
 			actions,
 			key='action2', label_visibility='collapsed')
 		st.form_submit_button("Save")
+
+st.write(
+	f'Current settings: comparing by {st.for_comparison}.'
+	)
 
 st.write('Comparison table')
 
