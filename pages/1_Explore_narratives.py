@@ -150,6 +150,8 @@ if submitted1:
 	st.write(
 	f'- comparing by {comparison_str}.'
 	)
+else:
+	st.write('no settings yet: please enter and save settings in the form above')
 
 st.write('Comparison table')
 
