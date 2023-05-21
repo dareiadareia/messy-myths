@@ -29,7 +29,7 @@ number_of_narratives = st.number_input('Number of narratives to compare',
 
 selected_narratives=[]
 
-multiple_choice = [f'{seq["title"]} ({seq["passage reference"]})' for seq in list_of_seqs if f'{seq["title"]} ({seq["passage reference"]})' not in selected_narratives]
+multiple_choice = [f'{seq["metadata"]["title"]} ({seq["metadata"]["passage reference"]})' for seq in list_of_seqs if f'{seq["metadata"]["title"]} ({seq["metadata"]["passage reference"]})' not in selected_narratives]
 
 # selected_narratives = []
 for i in range(number_of_narratives):
@@ -44,7 +44,7 @@ selected_narratives = list(set(selected_narratives))
 
 narratives_to_show = []
 for seq in list_of_seqs:
-	if f'{seq["title"]} ({seq["passage reference"]})' in selected_narratives:
+	if f'{seq["metadata"]["title"]} ({seq["metadata"]["passage reference"]})' in selected_narratives:
 		narratives_to_show.append(seq)
 
 # narratives_to_show
