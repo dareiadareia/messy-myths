@@ -84,6 +84,9 @@ def extract_actions(hyleme_sequence):
 entities = [extract_entities(seq['hyleme sequence']) for seq in narratives_to_show]
 actions = [extract_actions(seq['hyleme sequence']) for seq in narratives_to_show]
 
+print(entities)
+print(actions)
+
 col1, col2 = st.columns(2)
 with col1:
 	form1 = st.form(
