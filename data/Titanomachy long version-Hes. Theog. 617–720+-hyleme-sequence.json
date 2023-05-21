@@ -5,52 +5,52 @@
     "hyleme sequence": [
         {
             "subject": "Ouranos",
-            "predicate": "binds",
+            "predicate": "bind/s",
             "object": "Hekatokheires"
         },
         {
             "subject": "Olympians",
-            "predicate": "fight",
+            "predicate": "fight/s",
             "object": "Titans"
         },
         {
             "subject": "Olympians",
-            "predicate": "free",
+            "predicate": "free/s",
             "object": "Hekatokheires"
         },
         {
             "subject": "Hekatokheires",
-            "predicate": "help",
+            "predicate": "help/s",
             "object": "Olympians"
         },
         {
             "subject": "Olympians+",
-            "predicate": "fight",
+            "predicate": "fight/s",
             "object": "Titans"
         },
         {
             "subject": "Zeus",
-            "predicate": "fights decisively with thunderbolt",
+            "predicate": "fight/s (decisively) (with thunderbolt)",
             "object": "Titans"
         },
         {
             "subject": "Hekatokheires",
-            "predicate": "fight decisively",
+            "predicate": "fight/s (decisively)",
             "object": "Titans"
         },
         {
             "subject": "Olympians+",
-            "predicate": "defeat",
+            "predicate": "defeat/s",
             "object": "Titans"
         },
         {
             "subject": "Olympians",
-            "predicate": "bind",
+            "predicate": "bind/s",
             "object": "Titans"
         },
         {
             "subject": "Hekatokheires",
-            "predicate": "guard",
+            "predicate": "guard/s",
             "object": "Titans"
         }
     ]

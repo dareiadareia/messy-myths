@@ -5,32 +5,32 @@
     "hyleme sequence": [
         {
             "subject": "Earth",
-            "predicate": "bears",
+            "predicate": "bear/s",
             "object": "Typhoeus"
         },
         {
             "subject": "Zeus",
-            "predicate": "fights",
+            "predicate": "fight/s",
             "object": "Typhoeus"
         },
         {
             "subject": "Zeus",
-            "predicate": "fights decisively with thunderbolt",
+            "predicate": "fight/s (decisively) (with thunderbolt)",
             "object": "Typhoeus"
         },
         {
             "subject": "Zeus",
-            "predicate": "defeats",
+            "predicate": "defeat/s",
             "object": "Typhoeus"
         },
         {
             "subject": "Zeus",
-            "predicate": "binds under a rock",
+            "predicate": "bind/s (under a rock)",
             "object": "Typhoeus"
         },
         {
             "subject": "Olympians",
-            "predicate": "crown",
+            "predicate": "crown/s",
             "object": "Zeus"
         }
     ]

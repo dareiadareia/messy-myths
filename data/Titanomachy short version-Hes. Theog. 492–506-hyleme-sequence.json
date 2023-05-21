@@ -5,32 +5,32 @@
     "hyleme sequence": [
         {
             "subject": "Kronos",
-            "predicate": "throws up",
+            "predicate": "throw/s up",
             "object": "stone"
         },
         {
             "subject": "Kronos",
-            "predicate": "throws up",
+            "predicate": "throw/s up",
             "object": "his children"
         },
         {
             "subject": "Zeus",
-            "predicate": "places",
+            "predicate": "place/s",
             "object": "stone"
         },
         {
             "subject": "Zeus",
-            "predicate": "frees",
+            "predicate": "free/s",
             "object": "Cyclopes"
         },
         {
             "subject": "Cyclopes",
-            "predicate": "give thunderbolt+",
+            "predicate": "give/s thunderbolt+",
             "object": "Zeus"
         },
         {
             "subject": "Zeus",
-            "predicate": "rules",
+            "predicate": "rule/s",
             "object": "mortals and immortals"
         }
     ]
