@@ -135,7 +135,7 @@ with col2:
 			key='action2', label_visibility='collapsed')
 		submitted2 = st.form_submit_button("Save")
 
-comparison = [elem for elem in [compare_subj, compare_pred, compare_obj] if elem is True]
+comparison = [elem.label for elem in [compare_subj, compare_pred, compare_obj] if elem is True]
 
 if submitted1:
 	st.write(
