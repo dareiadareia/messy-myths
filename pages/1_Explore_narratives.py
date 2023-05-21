@@ -49,16 +49,6 @@ for seq in list_of_seqs:
 
 # narratives_to_show
 
-col1, col2 = st.columns(2)
-with col1:
-	form = st.form(
-		key='for_comparison')
-	with form:
-		st.write('Choose comparison parametres')
-		st.checkbox('subject', key='checkbox_subj')
-		st.checkbox('predicate', key='checkbox_pred')
-		st.checkbox('object', key='checkbox_obj')
-		st.form_submit_button("Save")
 
 cols = st.columns(number_of_narratives)
 
@@ -72,6 +62,24 @@ for i, col in enumerate(cols):
 	# seq_ref = seq["title"] + f'({seq["passage reference"]})'
 	# seq_as_table = pd.DataFrame.from_records(seq["hyleme sequence"])
 
+col1, col2 = st.columns(2)
+with col1:
+	form1 = st.form(
+		key='for_comparison')
+	with form1:
+		st.write('Choose comparison parametres')
+		st.checkbox('subject', key='checkbox_subj')
+		st.checkbox('predicate', key='checkbox_pred')
+		st.checkbox('object', key='checkbox_obj')
+		st.form_submit_button("Save")
+with col2:
+	form2 = st.form(key='claimed_to_be_same')
+	with form2:
+		st.write('If you want to treat entities as identical for this comparison, select them')
+		currently_same = []
+		st.selectbox('', key='entity1', set([[seq['subject'] for seq in narratives_to_show] + [seq['object'] for seq in narratives_to_show]])) '=' st.selectbox('', key='entity2', set([[seq['subject'] for seq in narratives_to_show] + [seq['object'] for seq in narratives_to_show]]))
+		st.selectbox('', key='action1', set([seq['predicate'] for seq in narratives_to_show])) '=' st.selectbox('', key='action2', set([seq['predicate'] for seq in narratives_to_show]))
+		st.form_submit_button("Save")
 
 st.subtitle('Comparison table')
 
