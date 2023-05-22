@@ -163,6 +163,7 @@ else:
 
 st.write('Comparison table')
 
+diff = ''
 if len(narratives_to_show) == 2:
 	diff = narratives_to_show[0].compare(narratives_to_show[1], 
 		keep_equal=True, 
