@@ -58,8 +58,8 @@ cols = st.columns(number_of_narratives)
 for i, col in enumerate(cols):
 	# print(i)
 	with col:
-		st.table(pd.DataFrame.from_records(narratives_to_show[i]["hyleme sequence"]),
-			).reset_index(drop=True)
+		st.table(pd.DataFrame.from_records(narratives_to_show[i]["hyleme sequence"])
+			)
 
 #for seq in list_of_seqs:
 	# seq_id = seq["sequence id"]
