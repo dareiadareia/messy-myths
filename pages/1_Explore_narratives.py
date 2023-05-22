@@ -188,6 +188,7 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 		for i in range(last_match_j, len(hyl_seq2)):
 			elem2 = hyl_seq2[i]
 			if compare_hylemes(elem1, elem2, crit):
+				match_found = True
 				new_hyl_seq += stack1 
 				new_hyl_seq += stack2
 				new_hyl_seq.append({
@@ -225,7 +226,7 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 				"subject2": elem2["subject"], 
 				"predicate2": elem2["predicate"], 
 				"object2": elem2["object"]})
-		if stack1 != []:
+		if not match_found:
 			stack1.append({
 					"subject1": elem1["subject"], 
 					"predicate1": elem1["predicate"], 
