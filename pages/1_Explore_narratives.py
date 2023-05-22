@@ -141,15 +141,15 @@ with col2:
 			key='action2', label_visibility='collapsed')
 		submitted3 = st.form_submit_button("Save")
 
-comparison = []
+comparison_criteria = []
 if compare_subj:
-	comparison.append("subject")
+	comparison_criteria.append("subject")
 if compare_pred:
-	comparison.append("predicate")
+	comparison_criteria.append("predicate")
 if compare_obj:
-	comparison.append("object")
+	comparison_criteria.append("object")
 
-comparison_str = ', '.join(comparison)
+comparison_str = ', '.join(comparison_criteria)
 
 'Current settings:'
 if submitted1:
@@ -158,9 +158,6 @@ if submitted1:
 	)
 else:
 	st.write('no settings yet (please enter and save settings in the form above)')
-
-
-st.write('## Comparison table')
 
 
 def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts 
@@ -190,9 +187,13 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	
 	# result is going to be: subj pred obj subj pred obj subj pred obj
 
-pd.DataFrame(new_hyl_seq)
 
 
+
+if len(narratives_to_show) == 2:
+	st.write('## Comparison table')
+	test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], comparison_criteria)
+	pd.DataFrame(test_comparison)
 # comparison_df = pd.DataFrame(comparison_dict)
 
 # comparison_df_editable = st.experimental_data_editor(comparison_df)
