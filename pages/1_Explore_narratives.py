@@ -143,11 +143,11 @@ with col2:
 
 comparison = []
 if compare_subj:
-	comparison.append('subject')
+	comparison.append("subject")
 if compare_pred:
-	comparison.append('predicate')
+	comparison.append("predicate")
 if compare_obj:
-	comparison.append('object')
+	comparison.append("object")
 
 comparison_str = ', '.join(comparison)
 
@@ -162,11 +162,38 @@ else:
 
 st.write('## Comparison table')
 
-def compare_narratives(dict1, dict2, crit): # crit is a list
+
+def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts 
+	result = True
+	for c in crit:
+		if hyl1[c] != hyl2[c]:
+			result = False
+	return result
 
 
+def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are dicts with everything including metadata
+	# just extract hyleme sequences (list of dicts)
+	hyl_seq1 = seq1["hyleme sequence"]
+	hyl_seq2 = seq2["hyleme sequence"]
+	# set stack
+	stack = []
+	i = 0
+	new_hyl_seq = []
+	for elem in hyl_seq1:
+		if compare_hylemes(elem, hyl_seq2[i], crit):
+			new_hyl_seq.append(elem)
+		else:
+			new_hyl_seq.append({"subject": "", "predicate": "", "object": ""})
+			i+=1
+	return new_hyl_seq
 
-# comparison_df = ''
+	
+	# result is going to be: subj pred obj subj pred obj subj pred obj
+
+pd.DataFrame(new_hyl_seq)
+
+
+# comparison_df = pd.DataFrame(comparison_dict)
 
 # comparison_df_editable = st.experimental_data_editor(comparison_df)
 
