@@ -39,8 +39,8 @@ for i in range(number_of_narratives):
 	key = f'narrative{i+1}'
 	)
 		)
-
-selected_narratives = list(set(selected_narratives))
+# --uncomment to remove repetition
+# selected_narratives = list(set(selected_narratives)) 
 
 narratives_to_show = []
 for seq in list_of_seqs:
@@ -48,7 +48,6 @@ for seq in list_of_seqs:
 		narratives_to_show.append(seq)
 
 # narratives_to_show
-
 
 cols = st.columns(number_of_narratives)
 
@@ -110,9 +109,9 @@ with col1:
 		submitted1 = st.form_submit_button("Save")
 with col2:
 	st.write('If you want to treat entities/actions as identical for this comparison, select them here.')
+	currently_same = []
 	form2 = st.form(key='entities_to_be_same')
 	with form2:
-		currently_same = []
 		'Entities:'
 		subcol1, subcol2, subcol3 =  st.columns([3,1,3])
 		with subcol1:
@@ -162,6 +161,9 @@ else:
 
 
 st.write('## Comparison table')
+
+def compare_narratives(dict1, dict2, crit): # crit is a list
+
 
 
 # comparison_df = ''
