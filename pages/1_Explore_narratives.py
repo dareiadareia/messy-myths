@@ -162,6 +162,9 @@ else:
 
 
 def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts 
+	print(hyl1)
+	print(hyl2)
+	print(f"criteria are: {crit}")
 	result = True
 	for c in crit:
 		if hyl1[c] != hyl2[c]:
