@@ -211,6 +211,7 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 					"predicate2": "", 
 					"object2": ""})
 		# i+=1
+	print(new_hyl_seq)
 	return new_hyl_seq
 
 st.write(f'Length of narr to show is {len(narratives_to_show)}')
