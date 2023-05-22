@@ -158,7 +158,7 @@ if submitted1:
 	f'- comparing by **{comparison_str}**.'
 	)
 else:
-	st.write('no settings yet (please enter and save settings in the form above)')
+	st.markdown(':red[no settings yet (please enter and save settings in the form above)]')
 
 
 def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts 
@@ -251,7 +251,7 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	print(new_hyl_seq)
 	return new_hyl_seq
 
-st.write(f'Length of narr to show is {len(narratives_to_show)}')
+# st.write(f'Length of narr to show is {len(narratives_to_show)}')
 
 if st.button("Compare!"):
 	if len(narratives_to_show) >= 2:
@@ -261,7 +261,7 @@ if st.button("Compare!"):
 		# st.write(test_comparison)
 		st.table(pd.DataFrame(test_comparison))
 	else:
-		st.write('Sorry, not enough narratives to compare :(')
+		st.markdown(':red[Sorry, not enough narratives to compare :(]')
 	# comparison_df = pd.DataFrame(comparison_dict)
 
 # comparison_df_editable = st.experimental_data_editor(comparison_df)
