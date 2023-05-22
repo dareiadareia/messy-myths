@@ -52,10 +52,14 @@ for seq in list_of_seqs:
 
 cols = st.columns(number_of_narratives)
 
+# def style_similar(v, props):
+# 	return props if v 
+
 for i, col in enumerate(cols):
 	# print(i)
 	with col:
-		st.table(pd.DataFrame.from_records(narratives_to_show[i]["hyleme sequence"]))
+		st.table(pd.DataFrame.from_records(narratives_to_show[i]["hyleme sequence"]),
+			).reset_index(drop=True).
 
 #for seq in list_of_seqs:
 	# seq_id = seq["sequence id"]
@@ -157,9 +161,15 @@ else:
 	st.write('no settings yet (please enter and save settings in the form above)')
 
 
-
-
 st.write('Comparison table')
+
+if len(narratives_to_show) == 2:
+	diff = narratives_to_show[0].compare(narratives_to_show[1], 
+		keep_equal=True, 
+		keep_shape = True, 
+		align_axis = 0)
+
+diff
 
 # comparison_df = ''
 
