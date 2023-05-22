@@ -34,6 +34,9 @@ form = st.form(
 
 with form:
     #c1, c2, c3 = st.columns(3)
+    metadata = {}
+    metadata['title (free text)'] = st.text_input(label='title', placeholder='Iliad, proem')
+    metadata['passage reference'] = st.text_input(label='reference', placeholder='Hom. Il. 1–9')
     for i in range(num_rows):
         c1, c2, c3 = st.columns(3)
         #with st.container():
