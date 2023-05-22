@@ -183,7 +183,7 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	# set stack
 	stack1 = []
 	stack2 = []
-	last_match_j = 0
+	last_match_j = -1
 	for elem1 in hyl_seq1:
 		match_found = False
 		for i in range(last_match_j+1, len(hyl_seq2)):
