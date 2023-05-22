@@ -162,9 +162,9 @@ else:
 
 
 def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts 
-	print(hyl1)
-	print(hyl2)
-	print(f"criteria are: {crit}")
+	# print(hyl1)
+	# print(hyl2)
+	# print(f"criteria are: {crit}")
 	result = True
 	for c in crit:
 		if hyl1[c] != hyl2[c]:
@@ -205,13 +205,13 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 					# "subject2": "", 
 					# "predicate2": "", 
 					# "object2": ""})
-				new_hyl_seq.append({
-					"subject1": "",
-					"predicate1": "",
-					"object1": "",
-					"subject2": "", 
-					"predicate2": "", 
-					"object2": ""})
+				# new_hyl_seq.append({
+				# 	"subject1": "",
+				# 	"predicate1": "",
+				# 	"object1": "",
+				# 	"subject2": "", 
+				# 	"predicate2": "", 
+				# 	"object2": ""})
 				stack.append({
 					"subject1": elem1["subject"], 
 					"predicate1": elem1["predicate"], 
