@@ -98,7 +98,7 @@ actions.sort()
 # print(entities)
 # print(actions)
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 with col1:
 	form1 = st.form(
 		key='for_comparison')
@@ -128,6 +128,7 @@ with col2:
 			entities,
 			key='entity2', label_visibility='collapsed')
 		submitted3 = st.form_submit_button("Save")
+with col3:
 	form3 = st.form(key='actions_to_be_same')
 	with form3:
 		'Actions to be treated as equal:'
