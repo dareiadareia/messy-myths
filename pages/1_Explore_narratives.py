@@ -191,7 +191,7 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	
 	# result is going to be: subj pred obj subj pred obj subj pred obj
 
-
+st.write(f'Length of narr to show is {len(narratives_to_show)}')
 if len(narratives_to_show) >= 2:
 	st.write('## Comparison table')
 	test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], comparison_criteria)
