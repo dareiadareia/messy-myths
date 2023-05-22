@@ -232,8 +232,8 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 				"predicate2": "", 
 				"object2": ""})
 		# i+=1
-	new_hyl_seq += stack1
-	new_hyl_seq += stack2
+	# new_hyl_seq += stack1
+	# new_hyl_seq += stack2
 	print(new_hyl_seq)
 	return new_hyl_seq
 
