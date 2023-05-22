@@ -181,37 +181,36 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	# print(hyl_seq2)
 	# set stack
 	stack = []
-	i = 0
 	new_hyl_seq = []
-	for elem in hyl_seq1:
-		if compare_hylemes(elem, hyl_seq2[i], crit):
-			# new_hyl_seq.append(stack)
-			new_hyl_seq.append({
-				"subject1": elem["subject"], 
-				"predicate1": elem["predicate"], 
-				"object1": elem["object"],
-				"subject2": hyl_seq2[i]["subject"], 
-				"predicate2": hyl_seq2[i]["predicate"], 
-				"object2": hyl_seq2[i]["object"]
-				})
-			stack=[]
-		else:
-			pass
-			# new_hyl_seq.append({"subject1": elem["subject"], 
-				# "predicate1": elem["predicate"], 
-				# "object1": elem["object"],
-				# "subject2": "", 
-				# "predicate2": "", 
-				# "object2": ""})
-			# stack.append({
-			# 	"subject1": "", 
-			# 	"predicate1": "", 
-			# 	"object1": "",
-			# 	"subject2": hyl_seq2[i]["subject"], 
-			# 	"predicate2": hyl_seq2[i]["predicate"], 
-			# 	"object2": hyl_seq2[i]["object"]
-			# 	})
-		i+=1
+	# i = 0
+	for elem1 in hyl_seq1:
+		for elem2 in hyl_seq2:
+			if compare_hylemes(elem1, elem2, crit):
+				new_hyl_seq.append(stack)
+				new_hyl_seq.append({
+					"subject1": elem1["subject"], 
+					"predicate1": elem1["predicate"], 
+					"object1": elem1["object"],
+					"subject2": elem2["subject"], 
+					"predicate2": elem2["predicate"], 
+					"object2": elem2["object"]
+					})
+				stack=[]
+			else:
+				pass
+				# new_hyl_seq.append({"subject1": elem["subject"], 
+					# "predicate1": elem["predicate"], 
+					# "object1": elem["object"],
+					# "subject2": "", 
+					# "predicate2": "", 
+					# "object2": ""})
+				stack.append({"subject1": elem1["subject"], 
+					"predicate1": elem1["predicate"], 
+					"object1": elem1["object"],
+					"subject2": "", 
+					"predicate2": "", 
+					"object2": ""})
+		# i+=1
 	return new_hyl_seq
 
 st.write(f'Length of narr to show is {len(narratives_to_show)}')
