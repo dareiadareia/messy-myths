@@ -2,7 +2,7 @@ import streamlit as st
 
 st.title('Messy myths: how can we compare mythological narratives?')
 
-st.markdown('Terminology: *hylemes* are elements of a narrative consisting of a subject, a predicate, and an object. *Hyleme sequences* are ordered lists of *hylemes* that represent the narrative.')
+st.markdown('Terminology: **hylemes** are elements of a narrative consisting of a subject, a predicate, and an object. **Hyleme sequences** are ordered lists of *hylemes* that represent the narrative.')
 
 st.markdown('[under construction...]')
 
