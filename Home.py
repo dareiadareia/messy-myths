@@ -1,3 +1,5 @@
 import streamlit as st
 
-st.title('Welcome to the home page of this mini-app')
+st.title('Messy myths: how can we compare mythological narratives?')
+
+st.markdown('[under construction...]')

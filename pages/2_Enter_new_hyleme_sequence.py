@@ -26,7 +26,6 @@ def save_data(num_rows):
                 })
         #st.write(row)
         st.session_state.data.loc[len(st.session_state.data)] = row
-    st.write('Sequence submitted!')
     # st.dataframe(st.session_state.data) 
 
 form = st.form(
@@ -93,6 +92,6 @@ def add_new_sequence_to_json(sequence_dict):
         branch='main', 
         user = st.secrets.github.user, 
         token = st.secrets.github.token)
+    st.write('Sequence submitted!')
     
-
 st.button("Submit sequence", on_click=add_new_sequence_to_json(sequence_dict))
