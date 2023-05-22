@@ -113,12 +113,12 @@ with col2:
 	currently_same = []
 	form2 = st.form(key='entities_to_be_same')
 	with form2:
-		# 'Entities:'
+		'Entities to be treated as equal:'
 		subcol1, subcol2, subcol3 =  st.columns([3,1,3])
 		with subcol1:
 			st.selectbox('Entities to be treated as equal', entities,
 			key='entity1', 
-			# label_visibility='collapsed'
+			label_visibility='collapsed'
 			) 
 		with subcol2:
 			'=' 
@@ -130,13 +130,13 @@ with col2:
 		submitted3 = st.form_submit_button("Save")
 	form3 = st.form(key='actions_to_be_same')
 	with form3:
-		# 'Actions:'
+		'Actions to be treated as equal:'
 		subcol4, subcol5, subcol6 =  st.columns([3,1,3])
 		with subcol4:
 			st.selectbox('Actions to be treated as equal:', 
 			actions, 
 			key='action1', 
-			# label_visibility='collapsed'
+			label_visibility='collapsed'
 			) 
 		with subcol5:
 			'=' 
