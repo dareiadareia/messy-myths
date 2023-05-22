@@ -171,11 +171,11 @@ def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts
 
 def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are dicts with everything including metadata
 	# just extract hyleme sequences (list of dicts)
-	print('...starting comparison...')
+	# print('...starting comparison...')
 	hyl_seq1 = seq1["hyleme sequence"]
 	hyl_seq2 = seq2["hyleme sequence"]
-	print(hyl_seq1)
-	print(hyl_seq2)
+	# print(hyl_seq1)
+	# print(hyl_seq2)
 	# set stack
 	stack = []
 	i = 0
@@ -188,14 +188,13 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 			i+=1
 	return new_hyl_seq
 
-	
-	# result is going to be: subj pred obj subj pred obj subj pred obj
-
 st.write(f'Length of narr to show is {len(narratives_to_show)}')
+
 if len(narratives_to_show) >= 2:
 	st.write('## Comparison table')
 	test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], comparison_criteria)
-	pd.DataFrame(test_comparison)
+	# print(test_comparison)
+	st.table(pd.DataFrame(test_comparison))
 # comparison_df = pd.DataFrame(comparison_dict)
 
 # comparison_df_editable = st.experimental_data_editor(comparison_df)
