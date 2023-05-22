@@ -225,13 +225,14 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 				"subject2": elem2["subject"], 
 				"predicate2": elem2["predicate"], 
 				"object2": elem2["object"]})
-		stack1.append({
-				"subject1": elem1["subject"], 
-				"predicate1": elem1["predicate"], 
-				"object1": elem1["object"],
-				"subject2": "", 
-				"predicate2": "", 
-				"object2": ""})
+		if stack1 != []:
+			stack1.append({
+					"subject1": elem1["subject"], 
+					"predicate1": elem1["predicate"], 
+					"object1": elem1["object"],
+					"subject2": "", 
+					"predicate2": "", 
+					"object2": ""})
 		# i+=1
 	new_hyl_seq += stack1
 	new_hyl_seq += stack2
