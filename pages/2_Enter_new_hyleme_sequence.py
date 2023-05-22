@@ -26,7 +26,7 @@ def save_data(num_rows):
                 })
         #st.write(row)
         st.session_state.data.loc[len(st.session_state.data)] = row
-    st.dataframe(st.session_state.data) 
+    # st.dataframe(st.session_state.data) 
 
 form = st.form(
     clear_on_submit=True, 
@@ -76,7 +76,7 @@ sequence_dict = st.session_state.data.to_dict('records')
 
 
 if st.button("Check sequence"):
-    st.write("Your surrent sequence:", sequence_dict)
+    st.write("Your surrent sequence:", st.dataframe(st.session_state.data) )
 
 def add_new_sequence_to_json(sequence_dict):
     from save_to_github import push_to_repo_branch
