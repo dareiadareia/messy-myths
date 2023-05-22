@@ -182,10 +182,10 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	new_hyl_seq = []
 	# set stack
 	stack1 = []
+	stack2 = []
 	last_match_j = 0
 	for elem1 in hyl_seq1:
 		match_found = False
-		stack2 = []
 		for i in range(last_match_j+1, len(hyl_seq2)):
 			elem2 = hyl_seq2[i]
 			if compare_hylemes(elem1, elem2, crit):
