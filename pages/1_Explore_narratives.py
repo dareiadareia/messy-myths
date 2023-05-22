@@ -216,12 +216,13 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 
 st.write(f'Length of narr to show is {len(narratives_to_show)}')
 
-if len(narratives_to_show) >= 2:
-	st.write('## Comparison table')
-	test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], comparison_criteria)
-	# print(test_comparison)
-	st.table(pd.DataFrame(test_comparison))
-# comparison_df = pd.DataFrame(comparison_dict)
+if st.button("Compare!"):
+	if len(narratives_to_show) >= 2:
+		st.write('## Comparison table')
+		test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], comparison_criteria)
+		# print(test_comparison)
+		st.table(pd.DataFrame(test_comparison))
+	# comparison_df = pd.DataFrame(comparison_dict)
 
 # comparison_df_editable = st.experimental_data_editor(comparison_df)
 
