@@ -182,7 +182,7 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	new_hyl_seq = []
 	for elem in hyl_seq1:
 		if compare_hylemes(elem, hyl_seq2[i], crit):
-			new_hyl_seq.append(stack)
+			# new_hyl_seq.append(stack)
 			new_hyl_seq.append({
 				"subject1": elem["subject"], 
 				"predicate1": elem["predicate"], 
@@ -199,14 +199,14 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 				# "subject2": "", 
 				# "predicate2": "", 
 				# "object2": ""})
-			stack.append({
-				"subject1": "", 
-				"predicate1": "", 
-				"object1": "",
-				"subject2": hyl_seq2[i]["subject"], 
-				"predicate2": hyl_seq2[i]["predicate"], 
-				"object2": hyl_seq2[i]["object"]
-				})
+			# stack.append({
+			# 	"subject1": "", 
+			# 	"predicate1": "", 
+			# 	"object1": "",
+			# 	"subject2": hyl_seq2[i]["subject"], 
+			# 	"predicate2": hyl_seq2[i]["predicate"], 
+			# 	"object2": hyl_seq2[i]["object"]
+			# 	})
 			i+=1
 	return new_hyl_seq
 
