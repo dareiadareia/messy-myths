@@ -196,6 +196,7 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 				})
 			stack=[]
 		else:
+			pass
 			# new_hyl_seq.append({"subject1": elem["subject"], 
 				# "predicate1": elem["predicate"], 
 				# "object1": elem["object"],
