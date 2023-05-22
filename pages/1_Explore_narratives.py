@@ -151,7 +151,7 @@ comparison_str = ', '.join(comparison)
 'Current settings:'
 if submitted1:
 	st.write(
-	f'- comparing by {comparison_str}.'
+	f'- comparing by **{comparison_str}**.'
 	)
 else:
 	st.write('no settings yet (please enter and save settings in the form above)')
