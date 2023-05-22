@@ -161,16 +161,8 @@ else:
 	st.write('no settings yet (please enter and save settings in the form above)')
 
 
-st.write('Comparison table')
+st.write('## Comparison table')
 
-diff = ''
-if len(narratives_to_show) == 2:
-	diff = narratives_to_show[0].compare(narratives_to_show[1], 
-		keep_equal=True, 
-		keep_shape = True, 
-		align_axis = 0)
-
-diff
 
 # comparison_df = ''
 
