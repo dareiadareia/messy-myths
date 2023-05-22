@@ -117,7 +117,9 @@ with col2:
 		subcol1, subcol2, subcol3 =  st.columns([3,1,3])
 		with subcol1:
 			st.selectbox('Entities to be treated as equal', entities,
-			key='entity1', label_visibility='collapsed') 
+			key='entity1', 
+			# label_visibility='collapsed'
+			) 
 		with subcol2:
 			'=' 
 		with subcol3:
@@ -133,7 +135,9 @@ with col2:
 		with subcol4:
 			st.selectbox('Actions to be treated as equal:', 
 			actions, 
-			key='action1', label_visibility='collapsed') 
+			key='action1', 
+			# label_visibility='collapsed'
+			) 
 		with subcol5:
 			'=' 
 		with subcol6:
