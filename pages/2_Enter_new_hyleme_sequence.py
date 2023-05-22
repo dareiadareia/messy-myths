@@ -26,6 +26,7 @@ def save_data(num_rows):
                 })
         #st.write(row)
         st.session_state.data.loc[len(st.session_state.data)] = row
+    st.write('Sequence submitted!')
     # st.dataframe(st.session_state.data) 
 
 form = st.form(
@@ -61,7 +62,7 @@ with form:
                       help=None, 
                       autocomplete=None, 
                       on_change=None, 
-                      placeholder='sees', disabled=False, 
+                      placeholder='see/s', disabled=False, 
                       label_visibility="collapsed")
         with c3:
             obj = st.text_input(label='object', 
