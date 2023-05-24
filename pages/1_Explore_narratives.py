@@ -173,7 +173,9 @@ comparison_str = ', '.join(comparison_criteria)
 st.write(str(st.session_state.same_actions))
 
 temp = [f'– {t[0]} = {t[1]}' for t in st.session_state.same_actions]
-st.markdown('\n'.join(temp))
+
+for i in temp:
+	st.markdown(i)
 
 'Current settings:'
 if submitted1:
