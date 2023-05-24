@@ -50,6 +50,8 @@ for seq in list_of_seqs:
 
 # narratives_to_show
 
+st.write(f'## Select {number_of_narratives} narratives')
+
 cols = st.columns(number_of_narratives)
 
 # def style_similar(v, props):
@@ -108,6 +110,7 @@ if "same_entities" not in st.session_state:
 if "same_actions" not in st.session_state:
 	st.session_state.same_actions = []
 
+st.write(f'## Comparison settings')
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -180,7 +183,7 @@ def display_equalities(same_stuff):
 	else:
 		st.write('None')
 
-'Current settings:'
+'**Current settings:**'
 if len(st.session_state.comparison_criteria) > 0:
 	st.write(
 	f'1. Comparing by: **{comparison_str}**.'
@@ -199,6 +202,13 @@ if len(st.session_state.same_entities) > 0 or len(st.session_state.same_actions)
 		st.write('*Actions:*')
 		display_equalities("actions")
 
+if st.button('Clear all settings'):
+	st.session_state.comparison_criteria = []
+	st.session_state.same_actions = []
+	st.session_state.same_entities = []
+	st.session_state.checkbox_subj = False
+	st.session_state.checkbox_pred = False
+	st.session_state.checkbox_obj = False
 
 def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts 
 	# print(hyl1)
