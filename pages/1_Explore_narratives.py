@@ -162,12 +162,14 @@ with col3:
 
 if 'comparison_criteria' not in st.session_state:
 	st.session_state.comparison_criteria = []
-if compare_subj and "subject" not in st.session_state.comparison_criteria:
+if compare_subj:
 	st.session_state.comparison_criteria.append("subject")
-if compare_pred and "predicate" not in st.session_state.comparison_criteria:
+if compare_pred:
 	st.session_state.comparison_criteria.append("predicate")
-if compare_obj and "object" not in st.session_state.comparison_criteria:
+if compare_obj:
 	st.session_state.comparison_criteria.append("object")
+
+st.session_state.comparison_criteria = list(set(st.session_state.comparison_criteria))
 
 comparison_str = ', '.join(st.session_state.comparison_criteria)
 
