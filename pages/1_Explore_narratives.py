@@ -181,7 +181,7 @@ def display_equalities(same_stuff):
 		st.write('None')
 
 'Current settings:'
-if submitted1:
+if len(st.session_state.comparison_criteria) > 0:
 	st.write(
 	f'1. Comparing by: **{comparison_str}**.'
 	)
