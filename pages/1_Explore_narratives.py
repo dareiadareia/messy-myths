@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 import json
+import datetime
 # from st_aggrid import AgGrid
 
 st.title('Here you can explore and compare narratives')
@@ -311,6 +312,8 @@ if st.button("Compare!"):
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
 	
 
-st.button('Save this comparison')
+st.download_button('Save this comparison',
+	file_name=f'comparison_{datetime.datetime.now().strftime('%Y%m%d%H%M')}.csv',
+	mime='text/csv')
 # comparison_df_editable = st.experimental_data_editor(comparison_df)
 
