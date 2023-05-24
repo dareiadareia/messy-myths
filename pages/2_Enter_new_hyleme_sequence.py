@@ -6,6 +6,7 @@ __author__ = 'dareia'
 import pandas as pd
 import streamlit as st
 import pickle
+import datetime
 
 st.title('Enter hylemes below')
 
@@ -14,6 +15,8 @@ num_rows = st.slider('Number of Rows', min_value=1,max_value=30,value=1)
 if 'data' not in st.session_state:
     data = pd.DataFrame({'subject':[],'predicate':[],'object':[]})
     st.session_state.data = data
+if 'metadata' not in st.session_state:
+    st.session_state.metadata = {}
 
 #source: https://discuss.streamlit.io/t/button-to-add-new-row-of-inputs/33245/2
 def save_data(num_rows):
@@ -26,6 +29,8 @@ def save_data(num_rows):
                 })
         #st.write(row)
         st.session_state.data.loc[len(st.session_state.data)] = row
+    metadata = current_metadata
+    metadata['sequence id'] = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     # st.dataframe(st.session_state.data) 
 
 
@@ -35,9 +40,9 @@ form = st.form(
 
 with form:
     #c1, c2, c3 = st.columns(3)
-    metadata = {}
-    metadata['title (free text)'] = st.text_input(label='title', placeholder='Iliad, proem')
-    metadata['passage reference'] = st.text_input(label='reference', placeholder='Hom. Il. 1–9')
+    current_metadata = {}
+    current_metadata['title (free text)'] = st.text_input(label='title', placeholder='Iliad, proem')
+    current_metadata['passage reference'] = st.text_input(label='reference', placeholder='Hom. Il. 1–9')
     st.write('narrative:')
     for i in range(num_rows):
         c1, c2, c3 = st.columns(3)
@@ -77,11 +82,14 @@ with form:
                       label_visibility="collapsed")
     presubmit = st.form_submit_button("Process sequence", on_click=save_data(num_rows))
 
-sequence_dict = st.session_state.data.to_dict('records')
-
 if presubmit:
     st.write("Your surrent sequence:")
     st.dataframe(st.session_state.data)
+
+sequence_dict['hyleme sequence'] = st.session_state.data.to_dict('records')
+sequence_dict['metadata'] = st.session_state.metadata
+
+st.write(sequence_dict)
 
 def add_new_sequence_to_json(sequence_dict):
     from save_to_github import push_to_repo_branch
