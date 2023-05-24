@@ -113,7 +113,7 @@ if "same_actions" not in st.session_state:
 st.write(f'## Comparison settings')
 
 def reset_checkboxes():
-    st.session_state.checkbox_subj = False
+	st.session_state.checkbox_subj = False
 	st.session_state.checkbox_pred = False
 	st.session_state.checkbox_obj = False
 
