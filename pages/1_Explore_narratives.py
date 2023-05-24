@@ -288,10 +288,12 @@ if st.button("Compare!"):
 		test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], comparison_criteria)
 		# print(test_comparison)
 		# st.write(test_comparison)
+		comparison_df = pd.DataFrame(test_comparison)
 		st.table(pd.DataFrame(test_comparison))
+
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
-	# comparison_df = pd.DataFrame(comparison_dict)
+	
 
 st.button('Save this comparison')
 # comparison_df_editable = st.experimental_data_editor(comparison_df)
