@@ -90,7 +90,6 @@ sequence_dict = {}
 sequence_dict['hyleme sequence'] = st.session_state.data.to_dict('records')
 sequence_dict['metadata'] = st.session_state.metadata
 
-st.write(sequence_dict)
 
 def add_new_sequence_to_json(sequence_dict):
     from save_to_github import push_to_repo_branch
@@ -114,3 +113,5 @@ if submit:
     add_new_sequence_to_json(sequence_dict)
     status.write('Submitted!')
 
+
+sequence_dict
