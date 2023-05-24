@@ -311,7 +311,7 @@ if st.button("Compare!"):
 		st.download_button('Save this comparison',
 			file_name=f'comparison_{timestamp}.csv',
 			mime='text/csv',
-			data=comparison_df)
+			data=comparison_df.to_csv().encode('utf-8'))
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
 	
