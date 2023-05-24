@@ -101,6 +101,13 @@ actions.sort()
 # print(entities)
 # print(actions)
 
+if "same_entities" not in st.session_state:
+	st.session_state.same_entities = []
+
+if "same_actions" not in st.session_state:
+	st.session_state.same_actions = []
+
+
 col1, col2, col3 = st.columns(3)
 with col1:
 	form1 = st.form(
@@ -113,7 +120,6 @@ with col1:
 		submitted1 = st.form_submit_button("Save")
 with col2:
 	# st.write('If you want to treat entities/actions as identical for this comparison, select them here.')
-	currently_same = {"entities": [], "actions": []}
 	form2 = st.form(key='entities_to_be_same')
 	with form2:
 		'Entities to be treated as equal:'
@@ -132,7 +138,7 @@ with col2:
 			key='entity2', label_visibility='collapsed')
 		submitted2 = st.form_submit_button("Add")
 		if submitted2:
-			currently_same["entities"].append((entity_1, entity_2))
+			st.session_state.same_entities.append((entity_1, entity_2))
 with col3:
 	form3 = st.form(key='actions_to_be_same')
 	with form3:
@@ -152,7 +158,7 @@ with col3:
 			key='action2', label_visibility='collapsed')
 		submitted3 = st.form_submit_button("Add")
 		if submitted3:
-			currently_same["actions"].append((action_1, action_2))
+			st.session_state.same_actions.append((action_1, action_2))
 
 comparison_criteria = []
 if compare_subj:
@@ -164,9 +170,7 @@ if compare_obj:
 
 comparison_str = ', '.join(comparison_criteria)
 
-currently_same
-
-''.join(currently_same["actions"])
+st.write(str(st.session_state.same_actions))
 
 'Current settings:'
 if submitted1:
