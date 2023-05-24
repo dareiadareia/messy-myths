@@ -96,7 +96,7 @@ def add_new_sequence_to_json(sequence_dict):
     st.write('Submitted!')
 
 
-submit = st.button("Submit sequence", on_click=)
+submit = st.button("Submit sequence")
 
 status = st.container()
 
