@@ -112,11 +112,6 @@ if "same_actions" not in st.session_state:
 
 st.write(f'## Comparison settings')
 
-def reset_checkboxes():
-	st.session_state.checkbox_subj = False
-	st.session_state.checkbox_pred = False
-	st.session_state.checkbox_obj = False
-
 col1, col2, col3 = st.columns(3)
 with col1:
 	form1 = st.form(
@@ -203,15 +198,13 @@ if len(st.session_state.same_entities) > 0 or len(st.session_state.same_actions)
 	with c1:
 		st.write('*Entities:*')
 		display_equalities("entities")
+		if st.button('Clear entities'):
+			st.session_state.same_entities = []
 	with c2:
 		st.write('*Actions:*')
 		display_equalities("actions")
-
-if st.button('Clear all settings'):
-	st.session_state.comparison_criteria = []
-	st.session_state.same_actions = []
-	st.session_state.same_entities = []
-	reset_checkboxes()
+		if st.button('Clear actions'):
+			st.session_state.same_actions = []
 
 def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts 
 	# print(hyl1)
