@@ -27,8 +27,7 @@ def save_data(num_rows):
         #st.write(row)
         st.session_state.data.loc[len(st.session_state.data)] = row
     # st.dataframe(st.session_state.data) 
-    with confirm_message:
-        st.write('Submitted!')
+
 
 form = st.form(
     clear_on_submit=True, 
@@ -77,7 +76,6 @@ with form:
                       placeholder='Leda', disabled=False, 
                       label_visibility="collapsed")
     submit = st.form_submit_button("Process sequence", on_click=save_data(num_rows))
-    confirm_message = st.empty() 
 
 sequence_dict = st.session_state.data.to_dict('records')
 
@@ -96,5 +94,8 @@ def add_new_sequence_to_json(sequence_dict):
         user = st.secrets.github.user, 
         token = st.secrets.github.token)
     # st.write('Sequence submitted!')
+    with confirm_message:
+        st.write('Submitted!')
     
-# st.button("Submit sequence", on_click=add_new_sequence_to_json(sequence_dict))
+st.button("Submit sequence", on_click=add_new_sequence_to_json(sequence_dict))
+confirm_message = st.empty() 
