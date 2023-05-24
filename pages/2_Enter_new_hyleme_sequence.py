@@ -94,8 +94,7 @@ def add_new_sequence_to_json(sequence_dict):
         user = st.secrets.github.user, 
         token = st.secrets.github.token)
     # st.write('Sequence submitted!')
-    with confirm_message:
-        st.write('Submitted!')
+    st.write('Submitted!')
+
     
 st.button("Submit sequence", on_click=add_new_sequence_to_json(sequence_dict))
-confirm_message = st.empty() 
