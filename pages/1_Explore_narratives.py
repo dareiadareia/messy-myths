@@ -160,13 +160,14 @@ with col3:
 		if submitted3:
 			st.session_state.same_actions.append((action_1, action_2))
 
-comparison_criteria = []
-if compare_subj:
-	comparison_criteria.append("subject")
-if compare_pred:
-	comparison_criteria.append("predicate")
-if compare_obj:
-	comparison_criteria.append("object")
+if 'comparison_criteria' not in st.session_state:
+	st.session_state.comparison_criteria = []
+if compare_subj and "subject" not in st.session_state.comparison_criteria:
+	st.session_state.comparison_criteria.append("subject")
+if compare_pred and "predicate" not in st.session_state.comparison_criteria:
+	st.session_state.comparison_criteria.append("predicate")
+if compare_obj and "object" not in st.session_state.comparison_criteria:
+	st.session_state.comparison_criteria.append("object")
 
 comparison_str = ', '.join(comparison_criteria)
 
