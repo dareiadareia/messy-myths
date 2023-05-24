@@ -170,24 +170,32 @@ if compare_obj:
 
 comparison_str = ', '.join(comparison_criteria)
 
-st.write(str(st.session_state.same_actions))
-
-temp = [f'{t[0]} = {t[1]}' for t in st.session_state.same_actions]
-
-for i in temp:
-	st.write('- ' + i)
+def display_equalities(same_stuff):
+	if len(st.session_state['same_'+same_stuff]) > 0:
+		temp = [f'{t[0]} = {t[1]}' for t in st.session_state[same_stuff]]
+			for i in temp:
+				st.write('- ' + i)
+	else:
+		st.write('None')
 
 'Current settings:'
 if submitted1:
 	st.write(
-	f'1. Comparing by **{comparison_str}**.'
+	f'1. Comparing by: **{comparison_str}**.'
 	)
-if submitted2 or submitted3:
-	st.write(
-		'2. For this comparison, the the following entities will be treated as equal:'
-		)
 else:
-	st.markdown(':red[no settings yet (please enter and save settings in the form above)]')
+	st.markdown('1. Comparing by: :red[no settings yet (please enter and save settings in the form above)]')
+if len(st.session_state.same_entities) > 0 or len(st.session_state.same_actions) > 0:
+	st.write(
+		'2. For this comparison, the the following entities/actions will be treated as equal:'
+		)
+	c1, c2 = st.columns(2)
+	with c1:
+		st.write('*Entities:*')
+		display_equalities("entities")
+	with c2:
+		st.write('*Actions:*')
+		display_equalities("actions")
 
 
 def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts 
