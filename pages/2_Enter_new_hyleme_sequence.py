@@ -86,6 +86,7 @@ if presubmit:
     st.write("Your surrent sequence:")
     st.dataframe(st.session_state.data)
 
+sequence_dict = {}
 sequence_dict['hyleme sequence'] = st.session_state.data.to_dict('records')
 sequence_dict['metadata'] = st.session_state.metadata
 
