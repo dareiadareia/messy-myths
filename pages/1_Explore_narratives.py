@@ -169,7 +169,7 @@ if compare_pred and "predicate" not in st.session_state.comparison_criteria:
 if compare_obj and "object" not in st.session_state.comparison_criteria:
 	st.session_state.comparison_criteria.append("object")
 
-comparison_str = ', '.join(comparison_criteria)
+comparison_str = ', '.join(st.session_state.comparison_criteria)
 
 def display_equalities(same_stuff):
 	key = 'same_' + same_stuff
@@ -295,7 +295,7 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 if st.button("Compare!"):
 	if len(narratives_to_show) >= 2:
 		st.write('## Comparison table')
-		test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], comparison_criteria)
+		test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], st.session_state.comparison_criteria)
 		# print(test_comparison)
 		# st.write(test_comparison)
 		comparison_df = pd.DataFrame(test_comparison)
