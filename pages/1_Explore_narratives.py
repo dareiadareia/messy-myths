@@ -33,7 +33,7 @@ multiple_choice = [f'{seq["metadata"]["title"]} ({seq["metadata"]["passage refer
 
 # selected_narratives = []
 for i in range(number_of_narratives):
-	selected_narratives.append(st.selectbox('Choose a story to compare',
+	selected_narratives.append(st.selectbox(f'Choose a story to compare ({i+1})',
 	multiple_choice,
 	#key = narrative1,
 	key = f'narrative{i+1}'
@@ -58,6 +58,7 @@ cols = st.columns(number_of_narratives)
 for i, col in enumerate(cols):
 	# print(i)
 	with col:
+	st.write('**Narrative {i+1}**')
 		try:
 			st.table(pd.DataFrame.from_records(narratives_to_show[i]["hyleme sequence"])
 			)
