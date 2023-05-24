@@ -311,9 +311,10 @@ if st.button("Compare!"):
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
 	
+timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M')
 
 st.download_button('Save this comparison',
-	file_name=f'comparison_{datetime.datetime.now().strftime('%Y%m%d%H%M')}.csv',
+	file_name=f'comparison_{timestamp}.csv',
 	mime='text/csv')
 # comparison_df_editable = st.experimental_data_editor(comparison_df)
 
