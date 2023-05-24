@@ -172,6 +172,8 @@ comparison_str = ', '.join(comparison_criteria)
 
 st.write(str(st.session_state.same_actions))
 
+temp = [f'{t[0]} = {t[1]}' for t in st.session_state.same_actions]
+
 'Current settings:'
 if submitted1:
 	st.write(
