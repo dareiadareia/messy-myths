@@ -1,1 +1,1 @@
-[{"subject": "Zeus", "predicate": "likes", "object": "Danae"}, {"subject": "Hera", "predicate": "hates", "object": "child"}, {"subject": "Hera", "predicate": "hates", "object": "child"}, {"subject": [""], "predicate": [""], "object": [""]}]
+[{"subject": "Zeus", "predicate": "likes", "object": "Danae"}, {"subject": "Hera", "predicate": "hates", "object": "child"}, {"subject": "Hera", "predicate": "hates", "object": "child"}, {"subject": [""], "predicate": [""], "object": [""]}, {"subject": [""], "predicate": [""], "object": [""]}]
