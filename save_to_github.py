@@ -51,7 +51,7 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
             r_old_data_json = r_old_data.json()
             print(r_old_data_json)
             print('----problem below----')
-            print(r_old_data_json["content"])
+            # print(r_old_data_json["content"])
             # print(type(r_old_data_json["content"]))
             old_content_bytes = r_old_data_json["content"].encode('utf-8')
             print(type(old_content_bytes))
