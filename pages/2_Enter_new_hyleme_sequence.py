@@ -91,12 +91,13 @@ sequence_dict = {}
 sequence_dict['hyleme sequence'] = st.session_state.data.to_dict('records')
 sequence_dict['metadata'] = st.session_state.metadata
 
+sequence_dict_export = [sequence_dict]
 
-def add_new_sequence_to_json(sequence_dict):
+def add_new_sequence_to_json(sequence_dict_export):
     from save_to_github import push_to_repo_branch
     push_to_repo_branch(file_or_variable='variable',
         gitHubFileName='sequence.json', 
-        fileName=sequence_dict, 
+        fileName=sequence_dict_export, 
         repo_slug='dareiadareia/messy-myths', 
         branch='main', 
         user = st.secrets.github.user, 
@@ -111,7 +112,7 @@ status = st.container()
 
 if submit:
     status.write('Submitting the sequence...')
-    add_new_sequence_to_json(sequence_dict)
+    add_new_sequence_to_json(sequence_dict_export)
     status.write('Submitted!')
 
 
