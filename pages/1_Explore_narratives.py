@@ -137,7 +137,7 @@ with col2:
 			entities,
 			key='entity2', label_visibility='collapsed')
 		submitted2 = st.form_submit_button("Add")
-		if submitted2:
+		if submitted2 and (entity_1, entity_2) not in st.session_state.same_entities:
 			st.session_state.same_entities.append((entity_1, entity_2))
 with col3:
 	form3 = st.form(key='actions_to_be_same')
@@ -157,7 +157,7 @@ with col3:
 			actions,
 			key='action2', label_visibility='collapsed')
 		submitted3 = st.form_submit_button("Add")
-		if submitted3:
+		if submitted3 and (action_1, action_2) not in st.session_state.same_actions:
 			st.session_state.same_actions.append((action_1, action_2))
 
 if 'comparison_criteria' not in st.session_state:
