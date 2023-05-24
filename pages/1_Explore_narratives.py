@@ -307,16 +307,16 @@ if st.button("Compare!"):
 		# st.write(test_comparison)
 		comparison_df = pd.DataFrame(test_comparison)
 		st.table(pd.DataFrame(test_comparison))
-
+		st.download_button('Save this comparison',
+			file_name=f'comparison_{timestamp}.csv',
+			mime='text/csv',
+			data=comparison_df)
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
 	
 timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M')
 
-st.download_button('Save this comparison',
-	file_name=f'comparison_{timestamp}.csv',
-	mime='text/csv',
-	data=comparison_df)
+
 
 # comparison_df_editable = st.experimental_data_editor(comparison_df)
 
