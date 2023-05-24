@@ -1,0 +1,37 @@
+{
+    "metadata": {"title": "Typhoeus",
+    "passage reference": "Hes. Theog. 820\u2013885",
+    "sequence id": "20220620151906"},
+    "hyleme sequence": [
+        {
+            "subject": "Earth",
+            "predicate": "bear/s",
+            "object": "Typhoeus"
+        },
+        {
+            "subject": "Zeus",
+            "predicate": "fight/s",
+            "object": "Typhoeus"
+        },
+        {
+            "subject": "Zeus",
+            "predicate": "fight/s (decisively) (with thunderbolt)",
+            "object": "Typhoeus"
+        },
+        {
+            "subject": "Zeus",
+            "predicate": "defeat/s",
+            "object": "Typhoeus"
+        },
+        {
+            "subject": "Zeus",
+            "predicate": "bind/s (under a rock)",
+            "object": "Typhoeus"
+        },
+        {
+            "subject": "Olympians",
+            "predicate": "crown/s",
+            "object": "Zeus"
+        }
+    ]
+}

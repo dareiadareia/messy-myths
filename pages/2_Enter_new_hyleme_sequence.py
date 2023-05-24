@@ -26,7 +26,8 @@ def save_data(num_rows):
                 })
         #st.write(row)
         st.session_state.data.loc[len(st.session_state.data)] = row
-    st.dataframe(st.session_state.data) 
+    # st.dataframe(st.session_state.data) 
+
 
 form = st.form(
     clear_on_submit=True, 
@@ -34,6 +35,10 @@ form = st.form(
 
 with form:
     #c1, c2, c3 = st.columns(3)
+    metadata = {}
+    metadata['title (free text)'] = st.text_input(label='title', placeholder='Iliad, proem')
+    metadata['passage reference'] = st.text_input(label='reference', placeholder='Hom. Il. 1–9')
+    st.write('narrative:')
     for i in range(num_rows):
         c1, c2, c3 = st.columns(3)
         #with st.container():
@@ -57,7 +62,7 @@ with form:
                       help=None, 
                       autocomplete=None, 
                       on_change=None, 
-                      placeholder='sees', disabled=False, 
+                      placeholder='see/s', disabled=False, 
                       label_visibility="collapsed")
         with c3:
             obj = st.text_input(label='object', 
@@ -76,7 +81,8 @@ sequence_dict = st.session_state.data.to_dict('records')
 
 
 if st.button("Check sequence"):
-    st.write("Your surrent sequence:", sequence_dict)
+    st.write("Your surrent sequence:")
+    st.dataframe(st.session_state.data)
 
 def add_new_sequence_to_json(sequence_dict):
     from save_to_github import push_to_repo_branch
@@ -87,6 +93,9 @@ def add_new_sequence_to_json(sequence_dict):
         branch='main', 
         user = st.secrets.github.user, 
         token = st.secrets.github.token)
+    # st.write('Sequence submitted!')
+    with confirm_message:
+        st.write('Submitted!')
     
-
 st.button("Submit sequence", on_click=add_new_sequence_to_json(sequence_dict))
+confirm_message = st.empty() 
