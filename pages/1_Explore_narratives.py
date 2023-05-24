@@ -175,7 +175,7 @@ if submitted1:
 	)
 if submitted2 or submitted3:
 	st.write(
-		'2. For this comparison, the the following entities will be treated as equal:' + 
+		'2. For this comparison, the the following entities will be treated as equal:'
 		)
 else:
 	st.markdown(':red[no settings yet (please enter and save settings in the form above)]')
