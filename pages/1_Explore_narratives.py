@@ -212,7 +212,7 @@ def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts
 	# print(f"criteria are: {crit}")
 	result = True
 	for c in crit:
-		if hyl1[c] != hyl2[c]:
+		if hyl1[c] != hyl2[c] and (hyl1[c], hyl2[c]) not in st.session_state.same_actions and (hyl1[c], hyl2[c]) not in st.session_state.same_entities:
 			result = False
 	return result
 
