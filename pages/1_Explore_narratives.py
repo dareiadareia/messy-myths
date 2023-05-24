@@ -58,7 +58,7 @@ cols = st.columns(number_of_narratives)
 for i, col in enumerate(cols):
 	# print(i)
 	with col:
-		st.write('**Narrative {i+1}**')
+		st.write(f'**Narrative {i+1}**')
 		try:
 			st.table(pd.DataFrame.from_records(narratives_to_show[i]["hyleme sequence"])
 			)
