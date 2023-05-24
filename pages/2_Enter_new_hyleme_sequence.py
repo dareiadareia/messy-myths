@@ -75,12 +75,11 @@ with form:
                       on_change=None, 
                       placeholder='Leda', disabled=False, 
                       label_visibility="collapsed")
-    submit = st.form_submit_button("Process sequence", on_click=save_data(num_rows))
+    presubmit = st.form_submit_button("Process sequence", on_click=save_data(num_rows))
 
 sequence_dict = st.session_state.data.to_dict('records')
 
-
-if st.button("Check sequence"):
+if presubmit:
     st.write("Your surrent sequence:")
     st.dataframe(st.session_state.data)
 
@@ -96,5 +95,13 @@ def add_new_sequence_to_json(sequence_dict):
     # st.write('Sequence submitted!')
     st.write('Submitted!')
 
-    
-st.button("Submit sequence", on_click=add_new_sequence_to_json(sequence_dict))
+
+submit = st.button("Submit sequence", on_click=)
+
+status = st.container()
+
+if submit:
+    status.write('Submitting the sequence...')
+    add_new_sequence_to_json(sequence_dict)
+    status.write('Submitted!')
+
