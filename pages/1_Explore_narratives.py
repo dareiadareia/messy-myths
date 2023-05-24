@@ -8,6 +8,7 @@ import datetime
 st.title('Here you can explore and compare narratives')
 
 directory_data = 'data'
+timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M')
 
 list_of_seqs = []
 for filename in os.listdir(directory_data):
@@ -314,7 +315,6 @@ if st.button("Compare!"):
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
 	
-timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M')
 
 
 
