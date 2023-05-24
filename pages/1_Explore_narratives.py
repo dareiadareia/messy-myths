@@ -171,8 +171,9 @@ if compare_obj:
 comparison_str = ', '.join(comparison_criteria)
 
 def display_equalities(same_stuff):
-	if len(st.session_state['same_'+same_stuff]) > 0:
-		temp = [f'{t[0]} = {t[1]}' for t in st.session_state[same_stuff]]
+	key = 'same_' + same_stuff
+	if len(st.session_state[key]) > 0:
+		temp = [f'{t[0]} = {t[1]}' for t in st.session_state[key]]
 		for i in temp:
 			st.write('- ' + i)
 	else:
