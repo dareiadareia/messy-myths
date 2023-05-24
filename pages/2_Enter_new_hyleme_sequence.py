@@ -31,6 +31,7 @@ def save_data(num_rows):
         st.session_state.data.loc[len(st.session_state.data)] = row
     metadata = current_metadata
     metadata['sequence id'] = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    st.session_state.metadata = metadata
     # st.dataframe(st.session_state.data) 
 
 
