@@ -93,7 +93,7 @@ def add_new_sequence_to_json(sequence_dict):
         user = st.secrets.github.user, 
         token = st.secrets.github.token)
     # st.write('Sequence submitted!')
-    st.write('Submitted!')
+    # st.write('Submitted!')
 
 
 submit = st.button("Submit sequence")
