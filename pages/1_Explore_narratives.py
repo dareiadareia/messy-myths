@@ -190,21 +190,21 @@ if len(st.session_state.comparison_criteria) > 0:
 	)
 else:
 	st.markdown('1. Comparing by: :red[no settings yet (please enter and save settings in the form above)]')
-if len(st.session_state.same_entities) > 0 or len(st.session_state.same_actions) > 0:
-	st.write(
-		'2. For this comparison, the the following entities/actions will be treated as equal:'
-		)
-	c1, c2 = st.columns(2)
-	with c1:
-		st.write('*Entities:*')
-		display_equalities("entities")
-		if st.button('Clear entities'):
-			st.session_state.same_entities = []
-	with c2:
-		st.write('*Actions:*')
-		display_equalities("actions")
-		if st.button('Clear actions'):
-			st.session_state.same_actions = []
+# if len(st.session_state.same_entities) > 0 or len(st.session_state.same_actions) > 0:
+st.write(
+	'2. For this comparison, the the following entities/actions will be treated as equal:'
+	)
+c1, c2 = st.columns(2)
+with c1:
+	st.write('*Entities:*')
+	display_equalities("entities")
+	if st.button('Clear entities'):
+		st.session_state.same_entities = []
+with c2:
+	st.write('*Actions:*')
+	display_equalities("actions")
+	if st.button('Clear actions'):
+		st.session_state.same_actions = []
 
 def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts 
 	# print(hyl1)
