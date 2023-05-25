@@ -24,5 +24,6 @@ selected_narrative_human = st.selectbox("Select a narrative to display:",
 
 selected_narrative = [seq for seq in list_of_seqs if f'{seq["metadata"]["passage reference"]}: {seq["metadata"]["title"]}' == selected_narrative_human]
 
+show_narrative(selected_narrative[0]["hyleme sequence"])
 
-st.table(pd.DataFrame.from_records(selected_narrative[0]["hyleme sequence"]))
+# st.table(pd.DataFrame.from_records(selected_narrative[0]["hyleme sequence"]))
