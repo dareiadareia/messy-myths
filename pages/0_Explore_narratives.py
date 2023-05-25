@@ -10,7 +10,7 @@ path_to_data = 'sequence.json'
 with open(path_to_data) as file:
 	list_of_seqs = json.loads(file.read())
 
-human_references = [f'{seq["passage reference"]}: {seq["title"]}' for seq in list_of_seqs]
+human_references = [f'{seq["metadata"]["passage reference"]}: {seq["metadata"]["title"]}' for seq in list_of_seqs]
 
 selected_narrative_human = st.selectbox("Select a narrative to display:",
 	human_references
