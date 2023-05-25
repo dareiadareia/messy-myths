@@ -8,6 +8,8 @@ import datetime
 path_to_data = 'sequence.json'
 
 def show_narrative(sequence):
+	for k, v in sequence["metadata"]:
+		st.write(f'{k}: {v}')
 	st.write(sequence["metadata"])
 	clean_hyleme_sequence = pd.DataFrame.from_records(sequence["hyleme sequence"]).applymap(lambda x: x[0])
 	st.table(clean_hyleme_sequence)
