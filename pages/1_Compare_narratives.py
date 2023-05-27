@@ -132,7 +132,7 @@ with col2:
 		with subcol1:
 			st.write(entities)
 			entity_1 = st.selectbox('Entities to be treated as equal', 
-				entities[0],
+				entities["0"],
 				key='entity1', 
 				label_visibility='collapsed'
 			) 
@@ -140,7 +140,7 @@ with col2:
 			'=' 
 		with subcol3:
 			entity_2 = st.selectbox('Entities to be treated as equal', 
-			entities[1],
+			entities["1"],
 			key='entity2', 
 			label_visibility='collapsed')
 		submitted2 = st.form_submit_button("Add")
@@ -153,7 +153,7 @@ with col3:
 		subcol4, subcol5, subcol6 =  st.columns([3,1,3])
 		with subcol4:
 			action_1 = st.selectbox('Actions to be treated as equal:', 
-			actions[0], 
+			actions["0"], 
 			key='action1', 
 			label_visibility='collapsed'
 			) 
@@ -161,7 +161,7 @@ with col3:
 			'=' 
 		with subcol6:
 			action_2 = st.selectbox('Actions to be treated as equal:', 
-			actions[1],
+			actions["1"],
 			key='action2', label_visibility='collapsed')
 		submitted3 = st.form_submit_button("Add")
 		if submitted3 and (action_1, action_2) not in st.session_state.same_actions:
