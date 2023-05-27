@@ -130,17 +130,18 @@ with col2:
 		'Entities to be treated as equal:'
 		subcol1, subcol2, subcol3 =  st.columns([3,1,3])
 		with subcol1:
-			entity_1 = st.selectbox('Entities to be treated as equal', entities[0],
-			key='entity1', 
-			label_visibility='collapsed'
+			entity_1 = st.selectbox('Entities to be treated as equal', 
+				entities[0],
+				key='entity1', 
+				label_visibility='collapsed'
 			) 
 		with subcol2:
 			'=' 
 		with subcol3:
-			entity_2 = st.selectbox('Entities to be treated as equal'
-			'', 
+			entity_2 = st.selectbox('Entities to be treated as equal', 
 			entities[1],
-			key='entity2', label_visibility='collapsed')
+			key='entity2', 
+			label_visibility='collapsed')
 		submitted2 = st.form_submit_button("Add")
 		if submitted2 and (entity_1, entity_2) not in st.session_state.same_entities:
 			st.session_state.same_entities.append((entity_1, entity_2))
@@ -174,6 +175,9 @@ st.session_state.comparison_criteria = [["subject", "predicate", "object"][x] fo
 # st.session_state.comparison_criteria = list(set(st.session_state.comparison_criteria))
 
 comparison_str = ', '.join(st.session_state.comparison_criteria)
+
+st.write(entities)
+st.write(actions)
 
 def display_equalities(same_stuff):
 	key = 'same_' + same_stuff
