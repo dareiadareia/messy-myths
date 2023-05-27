@@ -102,8 +102,8 @@ for i in range(len(narratives_to_show)):
 	actions[i].sort()
 
 # print('Entities are:')
-# print(entities)
-# print(actions)
+print(entities)
+print(actions)
 
 if "same_entities" not in st.session_state:
 	st.session_state.same_entities = []
@@ -176,8 +176,6 @@ st.session_state.comparison_criteria = [["subject", "predicate", "object"][x] fo
 
 comparison_str = ', '.join(st.session_state.comparison_criteria)
 
-st.write(entities)
-st.write(actions)
 
 def display_equalities(same_stuff):
 	key = 'same_' + same_stuff
