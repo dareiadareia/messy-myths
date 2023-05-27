@@ -318,7 +318,7 @@ if len(st.session_state.comparison_df) > 0:
 		mime='text/csv',
 		data=st.session_state.comparison_df.to_csv().encode('utf-8'))
 	else:
-		edited_df = st.experimental_data_editor(st.session_state.comparison_df, num_rows="dynamic")
+		edited_df = st.experimental_data_editor(st.session_state.comparison_df, num_rows="dynamic", use_container_width=True)
 		st.download_button('Save this comparison',
 		file_name=f'comparison_{timestamp}.csv',
 		mime='text/csv',
