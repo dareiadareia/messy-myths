@@ -33,7 +33,7 @@ selected_narratives=[]
 
 multiple_choice = [f'{seq["metadata"]["title"]} ({seq["metadata"]["passage reference"]})' for seq in list_of_seqs if f'{seq["metadata"]["title"]} ({seq["metadata"]["passage reference"]})' not in selected_narratives]
 
-st.write(f'## Select {number_of_narratives} narratives')
+st.write(f'## Select narratives')
 
 # selected_narratives = []
 for i in range(number_of_narratives):
@@ -52,7 +52,7 @@ for seq in list_of_seqs:
 	if f'{seq["metadata"]["title"]} ({seq["metadata"]["passage reference"]})' in selected_narratives:
 		narratives_to_show.append(seq)
 
-# narratives_to_show
+# narratives_to_show is a list of sequences with metadata
 
 cols = st.columns(number_of_narratives)
 
@@ -95,9 +95,9 @@ def extract_actions(hyleme_sequence):
 
 entities = []
 actions = []
-for seq in narratives_to_show:
-	entities += extract_entities(seq['hyleme sequence'])
-	actions += extract_actions(seq['hyleme sequence'])
+for i in len(narratives_to_show):
+	entities[i] = extract_entities(seq['hyleme sequence'])
+	actions[i] = extract_actions(seq['hyleme sequence'])
 
 entities.sort()
 actions.sort()
@@ -131,16 +131,16 @@ with col2:
 		'Entities to be treated as equal:'
 		subcol1, subcol2, subcol3 =  st.columns([3,1,3])
 		with subcol1:
-			entity_1 = st.selectbox('Entities to be treated as equal', entities,
+			entity_1 = st.selectbox('Entities to be treated as equal', entities[0],
 			key='entity1', 
 			label_visibility='collapsed'
 			) 
 		with subcol2:
 			'=' 
 		with subcol3:
-			entity_2 = st.selectbox(
+			entity_2 = st.selectbox('Entities to be treated as equal'
 			'', 
-			entities,
+			entities[1],
 			key='entity2', label_visibility='collapsed')
 		submitted2 = st.form_submit_button("Add")
 		if submitted2 and (entity_1, entity_2) not in st.session_state.same_entities:
@@ -152,15 +152,15 @@ with col3:
 		subcol4, subcol5, subcol6 =  st.columns([3,1,3])
 		with subcol4:
 			action_1 = st.selectbox('Actions to be treated as equal:', 
-			actions, 
+			actions[0], 
 			key='action1', 
 			label_visibility='collapsed'
 			) 
 		with subcol5:
 			'=' 
 		with subcol6:
-			action_2 = st.selectbox('', 
-			actions,
+			action_2 = st.selectbox('Actions to be treated as equal:', 
+			actions[1],
 			key='action2', label_visibility='collapsed')
 		submitted3 = st.form_submit_button("Add")
 		if submitted3 and (action_1, action_2) not in st.session_state.same_actions:
@@ -191,7 +191,7 @@ if len(st.session_state.comparison_criteria) > 0:
 	f'1. Comparing by: **{comparison_str}**.'
 	)
 else:
-	st.markdown('1. Comparing by: :red[no settings yet (please enter and save settings in the form above)]')
+	st.markdown('1. Comparing by: :red[**no settings yet**! Please enter and save settings in the form above.]')
 # if len(st.session_state.same_entities) > 0 or len(st.session_state.same_actions) > 0:
 st.write(
 	'2. For this comparison, the the following entities/actions will be treated as equal:'
@@ -221,11 +221,8 @@ def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts
 
 def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are dicts with everything including metadata
 	# just extract hyleme sequences (list of dicts)
-	# print('...starting comparison...')
 	hyl_seq1 = seq1["hyleme sequence"]
 	hyl_seq2 = seq2["hyleme sequence"]
-	# print(hyl_seq1)
-	# print(hyl_seq2)
 	new_hyl_seq = []
 	# set stack
 	stack1 = []
@@ -283,7 +280,6 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 					"predicate2": "", 
 					"object2": ""})
 			stack2 = []
-		# i+=1
 	new_hyl_seq += stack1
 	for k in range(last_match_j+1, len(hyl_seq2)):
 		elem2 = hyl_seq2[k]
@@ -297,8 +293,6 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	new_hyl_seq += stack2
 	print(new_hyl_seq)
 	return new_hyl_seq
-
-# st.write(f'Length of narr to show is {len(narratives_to_show)}')
 
 if st.button("Compare!"):
 	if len(narratives_to_show) >= 2:
@@ -315,8 +309,6 @@ if st.button("Compare!"):
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
 	
-
-
 
 # comparison_df_editable = st.experimental_data_editor(comparison_df)
 
