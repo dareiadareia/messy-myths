@@ -305,21 +305,22 @@ if st.button("Compare!"):
 		# print(test_comparison)
 		# st.write(test_comparison)
 		comparison_df = pd.DataFrame(test_comparison)
-		if st.selectbox("Choose visualisation", ["Static", "Editable"]) == "Static":
-			st.table(comparison_df)
-			st.download_button('Save this comparison',
-			file_name=f'comparison_{timestamp}.csv',
-			mime='text/csv',
-			data=comparison_df.to_csv().encode('utf-8'))
-		else:
-			edited_df = st.experimental_data_editor(comparison_df, num_rows="dynamic")
-			st.download_button('Save this comparison',
-			file_name=f'comparison_{timestamp}.csv',
-			mime='text/csv',
-			data=edited_df.to_csv().encode('utf-8'))
-		
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
+	
+if st.selectbox("Choose visualisation", ["Static", "Editable"]) == "Static":
+	st.table(comparison_df)
+	st.download_button('Save this comparison',
+	file_name=f'comparison_{timestamp}.csv',
+	mime='text/csv',
+	data=comparison_df.to_csv().encode('utf-8'))
+else:
+	edited_df = st.experimental_data_editor(comparison_df, num_rows="dynamic")
+	st.download_button('Save this comparison',
+	file_name=f'comparison_{timestamp}.csv',
+	mime='text/csv',
+	data=edited_df.to_csv().encode('utf-8'))
+		
 	
 
 # comparison_df_editable = st.experimental_data_editor(comparison_df)
