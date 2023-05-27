@@ -298,6 +298,7 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	print(new_hyl_seq)
 	return new_hyl_seq
 
+comparison_df = pd.DataFrame()
 if st.button("Compare!"):
 	if len(narratives_to_show) >= 2:
 		st.write('## Comparison table')
@@ -307,7 +308,6 @@ if st.button("Compare!"):
 		comparison_df = pd.DataFrame(test_comparison)
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
-		comparison_df = pd.DataFrame()
 
 if len(comparison_df) > 0:
 	if st.selectbox("Choose visualisation", ["Static", "Editable"]) == "Static":
