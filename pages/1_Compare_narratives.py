@@ -97,10 +97,9 @@ entities = {}
 actions = {}
 for i in range(len(narratives_to_show)):
 	entities[i] = extract_entities(seq['hyleme sequence'])
+	entities[i].sort()
 	actions[i] = extract_actions(seq['hyleme sequence'])
-
-entities.sort()
-actions.sort()
+	actions[i].sort()
 
 # print('Entities are:')
 # print(entities)
