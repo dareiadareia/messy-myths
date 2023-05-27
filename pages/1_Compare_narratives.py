@@ -307,7 +307,8 @@ if st.button("Compare!"):
 		comparison_df = pd.DataFrame(test_comparison)
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
-	
+		comparison_df = pd.DataFrame(narratives_to_show[0])
+
 if st.selectbox("Choose visualisation", ["Static", "Editable"]) == "Static":
 	st.table(comparison_df)
 	st.download_button('Save this comparison',
