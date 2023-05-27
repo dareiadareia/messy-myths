@@ -298,26 +298,27 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	print(new_hyl_seq)
 	return new_hyl_seq
 
-comparison_df = pd.DataFrame()
+if "comparison_df" not in st.session_state:
+	st.session_state.comparison_df = pd.DataFrame()
 if st.button("Compare!"):
 	if len(narratives_to_show) >= 2:
 		st.write('## Comparison table')
 		test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], st.session_state.comparison_criteria)
 		# print(test_comparison)
 		# st.write(test_comparison)
-		comparison_df = pd.DataFrame(test_comparison)
+		st.session_state.comparison_df = pd.DataFrame(test_comparison)
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
 
 if len(comparison_df) > 0:
 	if st.selectbox("Choose visualisation", ["Static", "Editable"]) == "Static":
-		st.table(comparison_df)
+		st.table(st.session_state.comparison_df)
 		st.download_button('Save this comparison',
 		file_name=f'comparison_{timestamp}.csv',
 		mime='text/csv',
-		data=comparison_df.to_csv().encode('utf-8'))
+		data=st.session_state.comparison_df.to_csv().encode('utf-8'))
 	else:
-		edited_df = st.experimental_data_editor(comparison_df, num_rows="dynamic")
+		edited_df = st.experimental_data_editor(st.session_state.comparison_df, num_rows="dynamic")
 		st.download_button('Save this comparison',
 		file_name=f'comparison_{timestamp}.csv',
 		mime='text/csv',
