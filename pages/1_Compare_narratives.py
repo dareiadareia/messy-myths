@@ -130,6 +130,7 @@ with col2:
 		'Entities to be treated as equal:'
 		subcol1, subcol2, subcol3 =  st.columns([3,1,3])
 		with subcol1:
+			st.write(entities)
 			entity_1 = st.selectbox('Entities to be treated as equal', 
 				entities[0],
 				key='entity1', 
