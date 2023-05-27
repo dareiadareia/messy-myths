@@ -310,7 +310,7 @@ if st.button("Compare!"):
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
 
-if len(comparison_df) > 0:
+if len(st.session_state.comparison_df) > 0:
 	if st.selectbox("Choose visualisation", ["Static", "Editable"]) == "Static":
 		st.table(st.session_state.comparison_df)
 		st.download_button('Save this comparison',
