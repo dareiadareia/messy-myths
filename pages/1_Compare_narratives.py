@@ -300,7 +300,7 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	print(new_hyl_seq)
 	return new_hyl_seq
 
-def highlight_row(row):
+def highlight_rows(row):
 	if '' in row.values():
 		pd.Series('', row.index)
 	else:
