@@ -298,6 +298,14 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	print(new_hyl_seq)
 	return new_hyl_seq
 
+def highlight_row(row):
+	if row.isna():
+		return pd.Series('', row.index)	
+	else:	
+		return pd.Series('background-color: yellow', row.index)
+
+
+
 if "comparison_df" not in st.session_state:
 	st.session_state.comparison_df = pd.DataFrame()
 if st.button("Compare!"):
@@ -306,7 +314,7 @@ if st.button("Compare!"):
 		test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], st.session_state.comparison_criteria)
 		# print(test_comparison)
 		# st.write(test_comparison)
-		st.session_state.comparison_df = pd.DataFrame(test_comparison)
+		st.session_state.comparison_df = pd.DataFrame(test_comparison).style.apply(highlight_row)
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
 
