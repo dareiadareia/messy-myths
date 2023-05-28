@@ -3,6 +3,8 @@ import pandas as pd
 import os
 import json
 import datetime
+import numpy as np 
+
 # from st_aggrid import AgGrid
 
 st.title('Here you can explore and compare narratives')
@@ -299,12 +301,10 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	return new_hyl_seq
 
 def highlight_row(row):
-	if row.isna():
-		return pd.Series('', row.index)	
-	else:	
-		return pd.Series('background-color: yellow', row.index)
-
-
+	if '' in row.values():
+ 		pd.Series('', row.index)
+ 	else:
+ 		pd.Series('background-color: yellow', row.index)
 
 if "comparison_df" not in st.session_state:
 	st.session_state.comparison_df = pd.DataFrame()
@@ -320,7 +320,7 @@ if st.button("Compare!"):
 
 if len(st.session_state.comparison_df) > 0:
 	if st.selectbox("Choose visualisation", ["Static", "Editable"]) == "Static":
-		st.table(st.session_state.comparison_df.style.apply(highlight_row))
+		st.table(st.session_state.comparison_df.style.apply(highlight_rows, axis=1))
 		st.download_button('Save this comparison',
 		file_name=f'comparison_{timestamp}.csv',
 		mime='text/csv',
