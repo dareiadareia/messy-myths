@@ -302,9 +302,9 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 
 def highlight_rows(row):
 	if '' in row.values:
-		return['' for r in row] 
+		return(['']*len(row)) 
 	else:
-		return['background-color: yellow' for r in row]
+		return(['background-color: yellow']*len(row))
 
 if "comparison_df" not in st.session_state:
 	st.session_state.comparison_df = pd.DataFrame()
