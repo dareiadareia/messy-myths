@@ -314,13 +314,13 @@ if st.button("Compare!"):
 		test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], st.session_state.comparison_criteria)
 		# print(test_comparison)
 		# st.write(test_comparison)
-		st.session_state.comparison_df = pd.DataFrame(test_comparison).style.apply(highlight_row)
+		st.session_state.comparison_df = pd.DataFrame(test_comparison)
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
 
 if len(st.session_state.comparison_df) > 0:
 	if st.selectbox("Choose visualisation", ["Static", "Editable"]) == "Static":
-		st.table(st.session_state.comparison_df)
+		st.table(st.session_state.comparison_df.style.apply(highlight_row))
 		st.download_button('Save this comparison',
 		file_name=f'comparison_{timestamp}.csv',
 		mime='text/csv',
