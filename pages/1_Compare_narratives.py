@@ -7,7 +7,7 @@ import numpy as np
 
 # from st_aggrid import AgGrid
 
-st.title('Here you can explore and compare narratives')
+# st.title('Here you can explore and compare narratives')
 
 directory_data = 'data'
 timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M')
