@@ -5,8 +5,7 @@ import json
 import datetime
 import numpy as np 
 
-from Home import compare_hylemes 
-from Home import compare_narratives
+from Home import test_function
 
 # from st_aggrid import AgGrid
 
@@ -217,6 +216,78 @@ with c2:
 	display_equalities("actions")
 	if st.button('Clear actions'):
 		st.session_state.same_actions = []
+
+def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts 
+	# print(hyl1)
+	# print(hyl2)
+	# print(f"criteria are: {crit}")
+	result = True
+	for c in crit:
+		if hyl1[c] != hyl2[c] and (hyl1[c], hyl2[c]) not in st.session_state.same_actions and (hyl1[c], hyl2[c]) not in st.session_state.same_entities:
+			result = False
+	return result
+
+
+def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are dicts with everything including metadata
+	# just extract hyleme sequences (list of dicts)
+	hyl_seq1 = seq1["hyleme sequence"]
+	hyl_seq2 = seq2["hyleme sequence"]
+	new_hyl_seq = []
+	# set stack
+	stack1 = []
+	stack2 = []
+	last_match_j = -1
+	for elem1 in hyl_seq1:
+		match_found = False
+		for i in range(last_match_j+1, len(hyl_seq2)):
+			elem2 = hyl_seq2[i]
+			if compare_hylemes(elem1, elem2, crit):
+				match_found = True
+				new_hyl_seq += stack1 
+				new_hyl_seq += stack2
+				new_hyl_seq.append({
+					"subject1": elem1["subject"], 
+					"predicate1": elem1["predicate"], 
+					"object1": elem1["object"],
+					"subject2": elem2["subject"], 
+					"predicate2": elem2["predicate"], 
+					"object2": elem2["object"]
+					})
+				# st.write(new_hyl_seq)
+				stack1=[]
+				stack2=[]
+				last_match_j = i
+				break
+			else:
+				stack2.append({
+				"subject1": "", 
+				"predicate1": "", 
+				"object1": "",
+				"subject2": elem2["subject"], 
+				"predicate2": elem2["predicate"], 
+				"object2": elem2["object"]})
+		if not match_found:
+			stack1.append({
+					"subject1": elem1["subject"], 
+					"predicate1": elem1["predicate"], 
+					"object1": elem1["object"],
+					"subject2": "", 
+					"predicate2": "", 
+					"object2": ""})
+			stack2 = []
+	new_hyl_seq += stack1
+	for k in range(last_match_j+1, len(hyl_seq2)):
+		elem2 = hyl_seq2[k]
+		stack2.append({
+				"subject1": "", 
+				"predicate1": "", 
+				"object1": "",
+				"subject2": elem2["subject"], 
+				"predicate2": elem2["predicate"], 
+				"object2": elem2["object"]})
+	new_hyl_seq += stack2
+	print(new_hyl_seq)
+	return new_hyl_seq
 
 def highlight_rows(row):
 	if '' in row.values:
