@@ -120,4 +120,4 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
             print(rPut.headers)
             print(rPut.text)
             print(e)
-    return(api_exception)
+    return(not api_exception)
