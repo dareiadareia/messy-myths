@@ -19,9 +19,7 @@ for filename in os.listdir(directory_data):
 		with open(f) as file:
 			list_of_seqs += json.loads(file.read())
 
-st.write(list_of_seqs)
-#if "selected" in st.session_state:
-#    del st.session_state.selected
+# st.write(list_of_seqs)
 
 number_of_narratives = st.number_input('Number of narratives to compare', 
 	min_value=1,
