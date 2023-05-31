@@ -332,4 +332,4 @@ if len(st.session_state.comparison_df) > 0:
 		mime='text/csv',
 		data=edited_df.to_csv().encode('utf-8'))
 
-st.write(f'Comparison score: {st.session_state.comparison_sim}')
+st.write(f'Comparison score: **{st.session_state.comparison_sim}**')
