@@ -43,6 +43,7 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
 
     for file in r2json['tree']:
         # Found file, get the sha code
+        print(file['path'])
         if file['path'] == gitHubFileName:
             sha = file['sha']
             # here i am trying to read the file's content, definitely some bad code
