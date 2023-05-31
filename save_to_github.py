@@ -54,11 +54,14 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
             print('----problem below----')
             # print(r_old_data_json["content"])
             # print(type(r_old_data_json["content"]))
-            old_content_bytes = r_old_data_json["content"].encode('utf-8')
-            print(type(old_content_bytes))
-            old_content = json.loads(base64.b64decode(old_content_bytes))
-            print(f"old content is: {old_content}")
-            print(type(old_content))
+            try:
+                old_content_bytes = r_old_data_json["content"].encode('utf-8')
+                print(type(old_content_bytes))
+                old_content = json.loads(base64.b64decode(old_content_bytes))
+                print(f"old content is: {old_content}")
+                print(type(old_content))
+            except KeyError:
+                st.write('There seems to be a problem with the API. Wait a bit and try again, please.')
 
 
     # if sha is None after the for loop, we did not find the file name!
