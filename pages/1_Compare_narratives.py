@@ -5,7 +5,8 @@ import json
 import datetime
 import numpy as np 
 
-from Home import compare_hylemes, compare_narratives
+from Home import compare_hylemes 
+from Home import compare_narratives
 
 # from st_aggrid import AgGrid
 
