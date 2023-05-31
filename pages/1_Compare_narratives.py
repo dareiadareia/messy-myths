@@ -289,7 +289,11 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 				"object2": elem2["object"]})
 	new_hyl_seq += stack2
 	print(new_hyl_seq)
-	return(new_hyl_seq, matches)
+	if len(hyl_seq1) >= len(hyl_seq2):
+		seqsim = matches/len(hyl_seq2)
+	else:
+		seqsim = matches/len(hyl_seq1)
+	return(new_hyl_seq, seqsim)
 
 def highlight_rows(row):
 	if '' in row.values:
@@ -306,6 +310,7 @@ if st.button("Compare!"):
 		# print(test_comparison)
 		# st.write(test_comparison)
 		st.session_state.comparison_df = pd.DataFrame(test_comparison[0])
+		st.session_state.comparison_sim = test_comparison[1]
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
 
@@ -323,4 +328,4 @@ if len(st.session_state.comparison_df) > 0:
 		mime='text/csv',
 		data=edited_df.to_csv().encode('utf-8'))
 
-st.write(f'Comparison score: {test_comparison[1]}')
+st.write(f'Comparison score: {st.session_state.comparison_sim}')
