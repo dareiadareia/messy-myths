@@ -21,11 +21,13 @@ for filename in os.listdir(directory_data):
 
 # st.write(list_of_seqs)
 
-number_of_narratives = st.number_input('Number of narratives to compare', 
-	min_value=1,
-	max_value=len(list_of_seqs),
-	value=1,
-	step=1)
+# number_of_narratives = st.number_input('Number of narratives to compare', 
+# 	min_value=1,
+# 	max_value=len(list_of_seqs),
+# 	value=1,
+# 	step=1)
+
+number_of_narratives = 2
 
 # if "selected_narratives" not in st.session_state or st.button("Start again"):
 # 	st.session_state.selected_narratives=[]
