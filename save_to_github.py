@@ -62,7 +62,7 @@ def push_to_repo_branch(file_or_variable, gitHubFileName, fileName, repo_slug, b
                 print(f"old content is: {old_content}")
                 print(type(old_content))
             except KeyError:
-                st.write('There seems to be a problem with the API. Wait a bit and try again, please.')
+                st.write(':red[**There seems to be a problem with the API. Wait a bit and try again, please.**]')
 
 
     # if sha is None after the for loop, we did not find the file name!
