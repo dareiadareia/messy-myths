@@ -19,6 +19,7 @@ for filename in os.listdir(directory_data):
 		with open(f) as file:
 			list_of_seqs.append(json.loads(file.read()))
 
+st.write(list_of_seqs)
 #if "selected" in st.session_state:
 #    del st.session_state.selected
 
