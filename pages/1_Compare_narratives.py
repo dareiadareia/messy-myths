@@ -302,10 +302,10 @@ if "comparison_df" not in st.session_state:
 if st.button("Compare!"):
 	if len(narratives_to_show) >= 2:
 		st.write('## Comparison table')
-		test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], st.session_state.comparison_criteria)[0]
+		test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], st.session_state.comparison_criteria)
 		# print(test_comparison)
 		# st.write(test_comparison)
-		st.session_state.comparison_df = pd.DataFrame(test_comparison)
+		st.session_state.comparison_df = pd.DataFrame(test_comparison[0])
 	else:
 		st.markdown(':red[Sorry, not enough narratives to compare :(]')
 
@@ -323,3 +323,4 @@ if len(st.session_state.comparison_df) > 0:
 		mime='text/csv',
 		data=edited_df.to_csv().encode('utf-8'))
 
+st.write(f'Comparison score: {test_comparison[1]}')
