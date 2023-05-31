@@ -101,7 +101,7 @@ sequence_dict_export = [sequence_dict]
 def add_new_sequence_to_json(sequence_dict_export):
     from save_to_github import push_to_repo_branch
     push_to_repo_branch(file_or_variable='variable',
-        gitHubFileName='sequence.json', 
+        gitHubFileName='data/sequences.json', 
         fileName=sequence_dict_export, 
         repo_slug='dareiadareia/messy-myths', 
         branch='main', 
