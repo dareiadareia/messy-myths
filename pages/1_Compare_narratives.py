@@ -323,4 +323,3 @@ if len(st.session_state.comparison_df) > 0:
 		mime='text/csv',
 		data=edited_df.to_csv().encode('utf-8'))
 
-test_function('This took a function from another file and it worked')
