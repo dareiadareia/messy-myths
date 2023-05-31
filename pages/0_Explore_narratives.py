@@ -112,6 +112,6 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 		seqsim = matches/len(hyl_seq1)
 	return(new_hyl_seq, seqsim)
 
-def look_for_similar_narratives(narrative):
+# def look_for_similar_narratives(narrative):
 
 
