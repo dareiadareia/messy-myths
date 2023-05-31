@@ -5,6 +5,8 @@ import json
 import datetime
 import numpy as np 
 
+from Home import test_function
+
 # from st_aggrid import AgGrid
 
 # st.title('Here you can explore and compare narratives')
