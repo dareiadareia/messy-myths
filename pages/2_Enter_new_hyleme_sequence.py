@@ -105,13 +105,13 @@ sequence_dict_export = [sequence_dict]
 
 def add_new_sequence_to_json(sequence_dict_export):
     from save_to_github import push_to_repo_branch
-    push_to_repo_branch(file_or_variable='variable',
+    return(push_to_repo_branch(file_or_variable='variable',
         gitHubFileName='sequences.json', 
         fileName=sequence_dict_export, 
         repo_slug='dareiadareia/messy-myths', 
         branch='main', 
         user = st.secrets.github.user, 
-        token = st.secrets.github.token)
+        token = st.secrets.github.token))
     # st.write('Sequence submitted!')
     # st.write('Submitted!')
 
@@ -122,8 +122,8 @@ status = st.container()
 
 if submit:
     status.write('Submitting the sequence...')
-    add_new_sequence_to_json(sequence_dict_export)
-    status.write('Submitted!')
+    if add_new_sequence_to_json(sequence_dict_export):
+        status.write('Submitted!')
 
 
 # sequence_dict
