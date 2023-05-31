@@ -103,7 +103,7 @@ def add_new_sequence_to_json(sequence_dict_export):
     push_to_repo_branch(file_or_variable='variable',
         gitHubFileName='sequences.json', 
         fileName=sequence_dict_export, 
-        repo_slug='dareiadareia/messy-myths/', 
+        repo_slug='dareiadareia/messy-myths', 
         branch='main', 
         user = st.secrets.github.user, 
         token = st.secrets.github.token)
