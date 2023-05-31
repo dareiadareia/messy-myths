@@ -22,7 +22,7 @@ for filename in os.listdir(directory_data):
 # st.write(list_of_seqs)
 
 number_of_narratives = st.number_input('Number of narratives to compare', 
-	min_value=1,
+	min_value=2,
 	max_value=len(list_of_seqs),
 	value=1,
 	step=1)
