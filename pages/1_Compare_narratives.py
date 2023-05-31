@@ -201,7 +201,7 @@ if len(st.session_state.comparison_criteria) > 0:
 	)
 else:
 	st.markdown('1. Comparing by: :red[**no settings yet**! Please enter and save settings in the form above.]')
-# if len(st.session_state.same_entities) > 0 or len(st.session_state.same_actions) > 0:
+
 st.write(
 	'2. For this comparison, the the following entities/actions will be treated as equal:'
 	)
@@ -237,12 +237,14 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	stack1 = []
 	stack2 = []
 	last_match_j = -1
+	matches = 0
 	for elem1 in hyl_seq1:
 		match_found = False
 		for i in range(last_match_j+1, len(hyl_seq2)):
 			elem2 = hyl_seq2[i]
 			if compare_hylemes(elem1, elem2, crit):
 				match_found = True
+				matches += 1
 				new_hyl_seq += stack1 
 				new_hyl_seq += stack2
 				new_hyl_seq.append({
@@ -287,7 +289,7 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 				"object2": elem2["object"]})
 	new_hyl_seq += stack2
 	print(new_hyl_seq)
-	return new_hyl_seq
+	return(new_hyl_seq, matches)
 
 def highlight_rows(row):
 	if '' in row.values:
@@ -300,7 +302,7 @@ if "comparison_df" not in st.session_state:
 if st.button("Compare!"):
 	if len(narratives_to_show) >= 2:
 		st.write('## Comparison table')
-		test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], st.session_state.comparison_criteria)
+		test_comparison = compare_narratives(narratives_to_show[0], narratives_to_show[1], st.session_state.comparison_criteria)[0]
 		# print(test_comparison)
 		# st.write(test_comparison)
 		st.session_state.comparison_df = pd.DataFrame(test_comparison)
