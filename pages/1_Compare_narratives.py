@@ -303,6 +303,10 @@ def highlight_rows(row):
 
 if "comparison_df" not in st.session_state:
 	st.session_state.comparison_df = pd.DataFrame()
+
+if "comparison_sim" not in st.session_state:
+	st.session_state.comparison_sim = 0
+
 if st.button("Compare!"):
 	if len(narratives_to_show) >= 2:
 		st.write('## Comparison table')
