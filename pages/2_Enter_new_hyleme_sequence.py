@@ -90,7 +90,7 @@ if presubmit:
 sequence_dict = {}
 hyl_sequence = st.session_state.data.to_dict('records')
 
-st.write(hyl_sequence)
+# st.write(hyl_sequence)
 # st.write(type(hyl_sequence))
 for h in hyl_sequence:
     for k, v in h.items():
@@ -100,8 +100,8 @@ sequence_dict['metadata'] = st.session_state.metadata
 
 sequence_dict_export = [sequence_dict]
 # st.write(sequence_dict_export)
-st.write('----')
-st.write(hyl_sequence)
+# st.write('----')
+# st.write(hyl_sequence)
 
 def add_new_sequence_to_json(sequence_dict_export):
     from save_to_github import push_to_repo_branch
