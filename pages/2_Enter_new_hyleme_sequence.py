@@ -92,7 +92,7 @@ hyl_sequence = st.session_state.data.to_dict('records')
 # st.write(hyl_sequence)
 # st.write(type(hyl_sequence))
 for k, v in hyl_sequence[0].items():
-    hyl_sequence[k] = v[0]
+    hyl_sequence[0][k] = v[0]
 sequence_dict['hyleme sequence'] = hyl_sequence
 sequence_dict['metadata'] = st.session_state.metadata
 
