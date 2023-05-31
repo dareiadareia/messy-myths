@@ -89,7 +89,7 @@ if presubmit:
 
 sequence_dict = {}
 hyl_sequence = st.session_state.data.to_dict('records')
-for k, v in hyl_sequence:
+for k, v in hyl_sequence.items():
     hyl_sequence[k] = v[0]
 sequence_dict['hyleme sequence'] = hyl_sequence
 sequence_dict['metadata'] = st.session_state.metadata
