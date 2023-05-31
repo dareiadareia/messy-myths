@@ -31,4 +31,5 @@ selected_narrative = [seq for seq in list_of_seqs if f'{seq["metadata"]["passage
 
 show_narrative(selected_narrative[0])
 
-# st.table(pd.DataFrame.from_records(selected_narrative[0]["hyleme sequence"]))
+from Compare_naratives import compare_hylemes
+from Compare_naratives import compare_narratives
