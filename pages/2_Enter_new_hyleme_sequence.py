@@ -88,7 +88,10 @@ if presubmit:
     st.dataframe(st.session_state.data)
 
 sequence_dict = {}
-sequence_dict['hyleme sequence'] = st.session_state.data.to_dict('records')
+hyl_sequence = st.session_state.data.to_dict('records')
+for k, v in hyl_sequence:
+    hyl_sequence[k] = v[0]
+sequence_dict['hyleme sequence'] = hyl_sequence
 sequence_dict['metadata'] = st.session_state.metadata
 
 sequence_dict_export = [sequence_dict]
