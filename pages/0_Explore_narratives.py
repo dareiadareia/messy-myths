@@ -31,5 +31,5 @@ selected_narrative = [seq for seq in list_of_seqs if f'{seq["metadata"]["passage
 
 show_narrative(selected_narrative[0])
 
-from Compare_naratives import compare_hylemes
-from Compare_naratives import compare_narratives
+from 1_Compare_naratives import compare_hylemes
+from 1_Compare_naratives import compare_narratives
