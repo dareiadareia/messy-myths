@@ -1,2 +1,1 @@
-[
-]
+[{"hyleme sequence": [{"subject": "a", "predicate": "v", "object": "c"}, {"subject": ["d"], "predicate": ["e"], "object": ["f"]}], "metadata": {"title": "test", "passage reference": "test", "sequence id": "20230531195016"}}]
