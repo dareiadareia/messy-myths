@@ -134,7 +134,7 @@ with st.container():
 			submitted1 = st.form_submit_button("Save")
 	with col2: 
 		if 'comparison_criteria' not in st.session_state:
-		st.session_state.comparison_criteria = []
+			st.session_state.comparison_criteria = []
 		comparison_boolean = [compare_subj, compare_pred, compare_obj]
 		st.session_state.comparison_criteria = [["subject", "predicate", "object"][x] for x in range(3) if comparison_boolean[x]]
 		comparison_str = ', '.join(st.session_state.comparison_criteria)
