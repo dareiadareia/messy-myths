@@ -41,13 +41,14 @@ selected_narratives=[]
 
 multiple_choice = [f'{seq["metadata"]["title"]} ({seq["metadata"]["passage reference"]})' for seq in list_of_seqs if f'{seq["metadata"]["title"]} ({seq["metadata"]["passage reference"]})' not in selected_narratives]
 
-st.write(f'## Select narratives')
+# st.write(f'## Select narratives')
 
 # selected_narratives = []
 for i in range(number_of_narratives):
 	selected_narratives.append(st.selectbox(f'Choose a story to compare ({i+1})',
 	multiple_choice,
 	#key = narrative1,
+	index = i+1,
 	key = f'narrative{i+1}'
 	)
 		)
