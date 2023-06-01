@@ -126,7 +126,7 @@ with col1:
 	form1 = st.form(
 		key='for_comparison')
 	with form1:
-		st.write('Choose comparison parametres')
+		st.write('Choose and save comparison parametres')
 		compare_subj = st.checkbox('subject', key='checkbox_subj')
 		compare_pred = st.checkbox('predicate', key='checkbox_pred')
 		compare_obj = st.checkbox('object', key='checkbox_obj')
