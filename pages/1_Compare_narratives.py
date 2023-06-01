@@ -204,17 +204,21 @@ def display_equalities(same_stuff):
 	else:
 		st.write('None')
 
-st.info(
-	'For this comparison, the the following entities/actions will be treated as equal:'
-	)
+# st.info(
+	# 'For this comparison, the the following entities/actions will be treated as equal:'
+	# )
 c1, c2 = st.columns(2)
 with c1:
 	# st.write('*Entities:*')
-	display_equalities("entities")
+	placeholder1 = st.empty()
+	with placeholder1:
+		display_equalities("entities")
 	if st.button('Clear entities'):
 		st.session_state.same_entities = []
+		placeholder1.empty()
 with c2:
 	# st.write('*Actions:*')
+	placeholder2 = st.empty()
 	display_equalities("actions")
 	if st.button('Clear actions'):
 		st.session_state.same_actions = []
