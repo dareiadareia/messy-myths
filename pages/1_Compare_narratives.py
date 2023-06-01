@@ -23,7 +23,8 @@ for filename in os.listdir(directory_data):
 
 with open('sequences.json') as file:
 	list_of_seqs += json.loads(file.read())
-# st.write(list_of_seqs)
+
+st.write(list_of_seqs)
 
 # number_of_narratives = st.number_input('Number of narratives to compare', 
 # 	min_value=1,

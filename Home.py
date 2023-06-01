@@ -6,6 +6,8 @@ st.markdown('Terminology: **hylemes** are elements of a narrative consisting of 
 
 # st.markdown('[]')
 
-if st.button('Under construction...'):
-	st.markdown('- link to other projects on digital mythology')
-	st.markdown('- calculate similarity score')
+# if st.button('Under construction...'):
+# 	st.markdown('- link to other projects on digital mythology')
+# 	st.markdown('- calculate similarity score')
+
+'Contact: dk@dareia.one' 
