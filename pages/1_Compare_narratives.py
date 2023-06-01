@@ -223,7 +223,7 @@ with c2:
 	# st.write('*Actions:*')
 	placeholder2 = st.empty()
 	with placeholder2:
-		st.write(st.session_state.same_entities)
+		st.write(st.session_state.same_actions)
 		# display_equalities("actions")
 	if st.button('Clear actions'):
 		st.session_state.same_actions = []
