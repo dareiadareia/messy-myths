@@ -196,6 +196,7 @@ with st.container():
 				if submitted3 and (action_1, action_2) not in st.session_state.same_actions:
 					st.session_state.same_actions.append((action_1, action_2))
 
+st.write(st.session_state.same_actions)
 
 def display_equalities(same_stuff):
 	key = 'same_' + same_stuff
