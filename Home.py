@@ -8,6 +8,8 @@ st.markdown('Some basic terminology: - **hylemes** are elements of a narrative c
 
 st.write('[Zgoll 2019]: Christian Zgoll, Tractatus Mythologicus, MythoS (Berlin; Boston: de Gruyter, 2019). https://doi.org/10.1515/9783110541588')
 
+st.write('Contact: dk@dareia.one')
+
 # st.markdown('[]')
 
 # if st.button('Under construction...'):
