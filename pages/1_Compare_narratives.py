@@ -138,12 +138,13 @@ with st.container():
 		comparison_boolean = [compare_subj, compare_pred, compare_obj]
 		st.session_state.comparison_criteria = [["subject", "predicate", "object"][x] for x in range(3) if comparison_boolean[x]]
 		comparison_str = ', '.join(st.session_state.comparison_criteria)
+		# st.write('')
 		if len(st.session_state.comparison_criteria) > 0:
-			st.write(
-			f'1. Comparing by: **{comparison_str}**.'
+			st.success(
+			f'Comparing by **{comparison_str}**.'
 			)
 		else:
-			st.markdown('1. Comparing by: :red[**no settings yet**! Please enter and save settings in the form above.]')
+			st.warning('**No settings yet**! Please enter and save settings in the form on the left.')
 
 # st.session_state.comparison_criteria = list(set(st.session_state.comparison_criteria))
 with st.container():
