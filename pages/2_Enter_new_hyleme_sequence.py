@@ -8,7 +8,7 @@ import streamlit as st
 import pickle
 import datetime
 
-st.title('Enter hylemes below')
+st.write('## Add a new hyleme sequence')
 
 num_rows = st.slider('Number of Rows', min_value=1,max_value=30,value=1)
 

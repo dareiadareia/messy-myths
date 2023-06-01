@@ -6,7 +6,7 @@ import datetime
 # from st_aggrid import AgGr
 
 directory_data = 'data'
-
+st.write('## Explore narratives')
 def show_narrative(sequence):
 	for k, v in sequence["metadata"].items():
 		st.write(f'**{k}**: {v}')
@@ -113,6 +113,6 @@ def compare_narratives(seq1, seq2, crit): # crit is a list, seq1 and seq2 are di
 	return(new_hyl_seq, seqsim)
 
 # def look_for_similar_narratives(narrative):
-	
+
 
 
