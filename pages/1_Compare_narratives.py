@@ -202,7 +202,7 @@ def display_equalities(same_stuff):
 		for i in temp:
 			st.write('- ' + i)
 	else:
-		st.write('*None*')
+		st.write(f'*No {same_stuff} marked as equal*')
 
 # st.info(
 	# 'For this comparison, the the following entities/actions will be treated as equal:'
@@ -216,7 +216,7 @@ with c1:
 	if st.button('Clear entities'):
 		st.session_state.same_entities = []
 		with placeholder1:
-			st.write('*None*')
+			st.write('*No entities marked as equal*')
 with c2:
 	# st.write('*Actions:*')
 	placeholder2 = st.empty()
@@ -225,7 +225,7 @@ with c2:
 	if st.button('Clear actions'):
 		st.session_state.same_actions = []
 		with placeholder2:
-			st.write('*None*')
+			st.write('*No actions marked as equal*')
 
 def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts 
 	# print(hyl1)
