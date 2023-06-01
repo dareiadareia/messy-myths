@@ -148,50 +148,50 @@ with st.container():
 # st.session_state.comparison_criteria = list(set(st.session_state.comparison_criteria))
 with st.container():
 	col1, col2 = st.columns(2)
-		with col1:
-			if len(narratives_to_show) > 1:
-				# st.write('If you want to treat entities/actions as identical for this comparison, select them here.')
-				form2 = st.form(key='entities_to_be_same')
-				with form2:
-					'Entities to be treated as equal:'
-					subcol1, subcol2, subcol3 =  st.columns([3,1,3])
-					with subcol1:
-						entity_1 = st.selectbox('Entities to be treated as equal', 
-							entities[0],
-							key='entity1', 
-							label_visibility='collapsed'
-						) 
-					with subcol2:
-						'=' 
-					with subcol3:
-						entity_2 = st.selectbox('Entities to be treated as equal', 
-						entities[1],
-						key='entity2', 
-						label_visibility='collapsed')
-					submitted2 = st.form_submit_button("Add")
-					if submitted2 and (entity_1, entity_2) not in st.session_state.same_entities:
-						st.session_state.same_entities.append((entity_1, entity_2))
-		with col2:
-			if len(narratives_to_show) > 1:
-				form3 = st.form(key='actions_to_be_same')
-				with form3:
-					'Actions to be treated as equal:'
-					subcol4, subcol5, subcol6 =  st.columns([3,1,3])
-					with subcol4:
-						action_1 = st.selectbox('Actions to be treated as equal:', 
-						actions[0], 
-						key='action1', 
+	with col1:
+		if len(narratives_to_show) > 1:
+			# st.write('If you want to treat entities/actions as identical for this comparison, select them here.')
+			form2 = st.form(key='entities_to_be_same')
+			with form2:
+				'Entities to be treated as equal:'
+				subcol1, subcol2, subcol3 =  st.columns([3,1,3])
+				with subcol1:
+					entity_1 = st.selectbox('Entities to be treated as equal', 
+						entities[0],
+						key='entity1', 
 						label_visibility='collapsed'
-						) 
-					with subcol5:
-						'=' 
-					with subcol6:
-						action_2 = st.selectbox('Actions to be treated as equal:', 
-						actions[1],
-						key='action2', label_visibility='collapsed')
-					submitted3 = st.form_submit_button("Add")
-					if submitted3 and (action_1, action_2) not in st.session_state.same_actions:
-						st.session_state.same_actions.append((action_1, action_2))
+					) 
+				with subcol2:
+					'=' 
+				with subcol3:
+					entity_2 = st.selectbox('Entities to be treated as equal', 
+					entities[1],
+					key='entity2', 
+					label_visibility='collapsed')
+				submitted2 = st.form_submit_button("Add")
+				if submitted2 and (entity_1, entity_2) not in st.session_state.same_entities:
+					st.session_state.same_entities.append((entity_1, entity_2))
+	with col2:
+		if len(narratives_to_show) > 1:
+			form3 = st.form(key='actions_to_be_same')
+			with form3:
+				'Actions to be treated as equal:'
+				subcol4, subcol5, subcol6 =  st.columns([3,1,3])
+				with subcol4:
+					action_1 = st.selectbox('Actions to be treated as equal:', 
+					actions[0], 
+					key='action1', 
+					label_visibility='collapsed'
+					) 
+				with subcol5:
+					'=' 
+				with subcol6:
+					action_2 = st.selectbox('Actions to be treated as equal:', 
+					actions[1],
+					key='action2', label_visibility='collapsed')
+				submitted3 = st.form_submit_button("Add")
+				if submitted3 and (action_1, action_2) not in st.session_state.same_actions:
+					st.session_state.same_actions.append((action_1, action_2))
 
 
 def display_equalities(same_stuff):
