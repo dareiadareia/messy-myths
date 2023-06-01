@@ -196,8 +196,6 @@ with st.container():
 				if submitted3 and (action_1, action_2) not in st.session_state.same_actions:
 					st.session_state.same_actions.append((action_1, action_2))
 
-st.write(st.session_state.same_actions)
-
 def display_equalities(same_stuff):
 	key = 'same_' + same_stuff
 	if len(st.session_state[key]) > 0:
@@ -215,7 +213,8 @@ with c1:
 	# st.write('*Entities:*')
 	placeholder1 = st.empty()
 	with placeholder1:
-		display_equalities("entities")
+		st.write(st.session_state.same_entities)
+		# display_equalities("entities")
 	if st.button('Clear entities'):
 		st.session_state.same_entities = []
 		with placeholder1:
@@ -224,7 +223,8 @@ with c2:
 	# st.write('*Actions:*')
 	placeholder2 = st.empty()
 	with placeholder2:
-		display_equalities("actions")
+		st.write(st.session_state.same_entities)
+		# display_equalities("actions")
 	if st.button('Clear actions'):
 		st.session_state.same_actions = []
 		with placeholder2:
