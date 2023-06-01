@@ -145,13 +145,13 @@ with st.container():
 			)
 		else:
 			st.warning('**No settings yet**! Please enter and save settings in the form on the left.')
-
+st.divider()
 # st.session_state.comparison_criteria = list(set(st.session_state.comparison_criteria))
 with st.container():
+	st.info('If you want to treat entities/actions as identical for this comparison, select them here.')
 	col1, col2 = st.columns(2)
 	with col1:
 		if len(narratives_to_show) > 1:
-			# st.write('If you want to treat entities/actions as identical for this comparison, select them here.')
 			form2 = st.form(key='entities_to_be_same')
 			with form2:
 				'Entities to be treated as equal:'
@@ -204,17 +204,17 @@ def display_equalities(same_stuff):
 	else:
 		st.write('None')
 
-st.write(
-	'2. For this comparison, the the following entities/actions will be treated as equal:'
+st.info(
+	'For this comparison, the the following entities/actions will be treated as equal:'
 	)
 c1, c2 = st.columns(2)
 with c1:
-	st.write('*Entities:*')
+	# st.write('*Entities:*')
 	display_equalities("entities")
 	if st.button('Clear entities'):
 		st.session_state.same_entities = []
 with c2:
-	st.write('*Actions:*')
+	# st.write('*Actions:*')
 	display_equalities("actions")
 	if st.button('Clear actions'):
 		st.session_state.same_actions = []
