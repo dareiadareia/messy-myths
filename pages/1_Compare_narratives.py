@@ -309,7 +309,7 @@ def highlight_rows(row):
 	if '' in row.values:
 		return(['']*len(row)) 
 	else:
-		return(['background-color: yellow']*len(row))
+		return(['background-color: antiquewhite']*len(row))
 
 if "comparison_df" not in st.session_state:
 	st.session_state.comparison_df = pd.DataFrame()
