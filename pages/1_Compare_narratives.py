@@ -145,7 +145,7 @@ with st.container():
 			)
 		else:
 			st.warning('**No settings yet**! Please enter and save settings in the form on the left.')
-st.divider()
+# st.divider()
 # st.session_state.comparison_criteria = list(set(st.session_state.comparison_criteria))
 with st.container():
 	st.info('If you want to treat entities/actions as identical for this comparison, select them here.')
@@ -202,7 +202,7 @@ def display_equalities(same_stuff):
 		for i in temp:
 			st.write('- ' + i)
 	else:
-		st.write('None')
+		st.write('*None*')
 
 # st.info(
 	# 'For this comparison, the the following entities/actions will be treated as equal:'
@@ -215,13 +215,17 @@ with c1:
 		display_equalities("entities")
 	if st.button('Clear entities'):
 		st.session_state.same_entities = []
-		placeholder1.empty()
+		with placeholder1:
+			st.write('*None*')
 with c2:
 	# st.write('*Actions:*')
 	placeholder2 = st.empty()
-	display_equalities("actions")
+	with placeholder2:
+		display_equalities("actions")
 	if st.button('Clear actions'):
 		st.session_state.same_actions = []
+		with placeholder2:
+			st.write('*None*')
 
 def compare_hylemes(hyl1, hyl2, crit): # hyl1 and hyl2 are dicts 
 	# print(hyl1)
